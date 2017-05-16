@@ -1,30 +1,28 @@
 local allow_changes = z_balance.dim
 
 do	--[[gathering]]--
-	aadd("z-gathering-0",		"5d-repair-pack-2",				"j")
+	aadd("z-gathering-0",			"5d-repair-pack-2",						"j")
 	
-	aadd("z-gathering-1",		"5d-iron-chest-mk2",			"d")
-	aadd("z-gathering-1",		"5d-iron-chest-mk2-2",			"e")
-	aadd("z-gathering-1",		"5d-iron-chest-mk3",			"f")
-	aadd("z-gathering-1",		"5d-iron-chest-mk2-3",			"g")
+	aadd("z-gathering-1",			"5d-iron-chest-mk2",					"d")
+	aadd("z-gathering-1",			"5d-iron-chest-mk2-2",				"e")
+	aadd("z-gathering-1",			"5d-iron-chest-mk3",					"f")
+	aadd("z-gathering-1",			"5d-iron-chest-mk2-3",				"g")
 	
-	aadd("z-gathering-3",		"5d-storage-tank",				"b")
+	aadd("z-gathering-3",			"5d-storage-tank",						"b")
 	
-	aadd("z-gathering-4",		"5d-mining-drill-speed-1",		"b")
-	aadd("z-gathering-4",		"5d-mining-drill-speed-2",		"c")
-	aadd("z-gathering-4",		"5d-mining-drill-speed-3",		"d")
+	aadd("z-gathering-4",			"5d-mining-drill-speed-1",		"b")
+	aadd("z-gathering-4",			"5d-mining-drill-speed-2",		"c")
+	aadd("z-gathering-4",			"5d-mining-drill-speed-3",		"d")
 	
-	aadd("z-gathering-6",		"5d-mining-drill-range-1",		"b")
-	aadd("z-gathering-6",		"5d-mining-drill-range-2",		"c")
-	aadd("z-gathering-6",		"5d-mining-drill-range-3",		"d")
+	aadd("z-gathering-6",			"5d-mining-drill-range-1",		"b")
+	aadd("z-gathering-6",			"5d-mining-drill-range-2",		"c")
+	aadd("z-gathering-6",			"5d-mining-drill-range-3",		"d")
 	
-	aadd("z-gathering-8",		"5d-offshore-pump",				"b")
-	aadd("z-gathering-8",		"5d-offshore-pump-2",			"c")
-	aadd("z-gathering-8",		"5d-pumpjack-2",				"f")
-	aadd("z-gathering-8",		"5d-pumpjack-3",				"g")
+	aadd("z-gathering-8",			"5d-offshore-pump",						"b")
+	aadd("z-gathering-8",			"5d-offshore-pump-2",					"c")
 	
-	aadd("z-gathering-10",		"5d-small-pump",				"b")
-	aadd("z-gathering-10",		"5d-small-pump-2",				"c")
+	aadd("z-gathering-9",			"5d-small-pump",							"i")
+	aadd("z-gathering-9",			"5d-small-pump-2",						"j")
 	
 	if use_graphics_tunnings then
 		zgc.set_icon("5d-repair-pack-2","__ZGroupChange__/graphics/icons/repairpack-2.png")
@@ -32,25 +30,27 @@ do	--[[gathering]]--
 	
 end
 do	--[[production]]--
-	aadd("z-production-0",		"5d-masher",				"b")
-	aadd("z-production-0",		"5d-masher-2",				"c")
+	aadd("z-production-0",		"5d-furnace",								"b")
 	
-	aadd("z-production-2",		"5d-furnace",				"a")
-	aadd("z-production-2",		"electric-furnace",			"b")
-	aadd("z-production-2",		"5d-electric-furnace",		"c")
+	aadd("z-production-1",		"5d-masher",								"d")
+	aadd("z-production-1",		"5d-masher-2",							"e")
 	
-	aadd("z-production-4",		"assembling-machine-1",		"a")
-	aadd("z-production-4",		"assembling-machine-2",		"b")
-	aadd("z-production-4",		"assembling-machine-3",		"c")
+	aadd("z-production-2",		"electric-furnace",					"a")
+	aadd("z-production-2",		"5d-electric-furnace",			"b")
+	
+	aadd("z-production-4",		"assembling-machine-1",			"a")
+	aadd("z-production-4",		"assembling-machine-2",			"b")
+	aadd("z-production-4",		"assembling-machine-3",			"c")
 	aadd("z-production-4",		"5d-assembling-machine-4",	"d")
 	aadd("z-production-4",		"5d-assembling-machine-5",	"e")
 	
-	aadd("z-production-6",		"5d-oil-refinery-2",		"e")
-	aadd("z-production-6",		"5d-oil-refinery-3",		"f")
+	aadd("z-production-6",		"5d-oil-refinery-2",				"e")
+	aadd("z-production-6",		"5d-oil-refinery-3",				"f")
 	
-	aadd("z-production-7",		"5d-chemical-plant-2",		"e")
-	aadd("z-production-7",		"5d-chemical-plant-3",		"f")
+	aadd("z-production-7",		"5d-chemical-plant-2",			"e")
+	aadd("z-production-7",		"5d-chemical-plant-3",			"f")
 	
+	aadd("z-production-9",		"5d-trader",								"b")
 	
 	if use_graphics_tunnings then
 		if data.raw["assembling-machine"]["assembling-machine-3"] then
@@ -87,7 +87,7 @@ do	--[[production]]--
 			}
 		end
 	end
-
+	
 	if use_graphics_tunnings then
 		zgc.set_icon("assembling-machine-1", "__ZGroupChange__/graphics/icons/assembling-machine-1.png")
 		zgc.set_icon("assembling-machine-2", "__ZGroupChange__/graphics/icons/assembling-machine-2.png")
@@ -98,26 +98,29 @@ do	--[[production]]--
 	
 end
 do	--[[resources]]--
-	aadd("z-resources-0",		"raw-wood",						"a")
-	aadd("z-resources-0",		"wood",							"b")
-	aadd("z-resources-0",		"coal",							"c")
-	aadd("z-resources-0",		"stone",						"e")
-	aadd("z-resources-0",		"sulfur",						"f")
+	aadd("z-resources-0",		"raw-wood",												"a")
+	aadd("z-resources-0",		"wood",														"b")
+	aadd("z-resources-0",		"coal",														"c")
+	aadd("z-resources-0",		"stone",													"e")
+	aadd("z-resources-0",		"sulfur",													"f")
 	
-	aadd("z-resources-3",		"lead-ore",						"e")
-	aadd("z-resources-3",		"tin-ore",						"f")
-	aadd("z-resources-3",		"zinc-ore",						"g")
-	aadd("z-resources-3",		"bauxite-ore",					"h")
-	aadd("z-resources-3",		"gold-ore",						"i")
+	aadd("z-resources-3",		"lead-ore",												"e")
+	aadd("z-resources-3",		"tin-ore",												"f")
+	aadd("z-resources-3",		"zinc-ore",												"g")
+	aadd("z-resources-3",		"bauxite-ore",										"h")
+	aadd("z-resources-3",		"gold-ore",												"i")
 	
-	aadd("z-resources-4",		"5d-iron-dust",					"a")
-	aadd("z-resources-4",		"5d-copper-dust",				"b")
-	aadd("z-resources-4",		"5d-lead-dust",					"c")
-	aadd("z-resources-4",		"5d-tin-dust",					"d")
-	aadd("z-resources-4",		"5d-zinc-dust",					"e")
-	aadd("z-resources-4",		"5d-aluminium-dust",			"f")
-	aadd("z-resources-4",		"5d-gold-dust",					"g")
+	aadd("z-resources-5",		"5d-iron-dust",							"a")
+	aadd("z-resources-5",		"5d-copper-dust",						"b")
+	aadd("z-resources-5",		"5d-lead-dust",							"c")
+	aadd("z-resources-5",		"5d-tin-dust",							"d")
+	aadd("z-resources-5",		"5d-zinc-dust",							"e")
+	aadd("z-resources-5",		"5d-aluminium-dust",				"f")
+	aadd("z-resources-5",		"5d-gold-dust",							"g")
 	
+	aadd("z-resources-15",	"5d-coin",												"a")
+	aadd("z-resources-15",	"5d-coin-to-artifact",						"b")
+	aadd("z-resources-15",	"5d-coin-to-crude-oil",						"c")
 	if z_balance.add_dust then
 		zgc.add_newRessource_min_max("iron-ore",	"5d-iron-dust",		1,2,0.2)
 		zgc.add_newRessource_min_max("copper-ore",	"5d-copper-dust",	1,2,0.2)
@@ -129,108 +132,160 @@ do	--[[resources]]--
 	end
 end
 do	--[[plates]]--
-	aadd("z-plates-0",			"lead-plate",				"c")
-	aadd("z-plates-0",			"5d-tin-plate",				"d")
-	aadd("z-plates-0",			"zinc-plate",				"e")
-	aadd("z-plates-0",			"aluminium-plate",			"f")
-	aadd("z-plates-0",			"gold-plate",				"g")
+	aadd("z-plates-0",			"lead-plate",													"c")
+	aadd("z-plates-0",			"5d-tin-plate",												"d")
+	aadd("z-plates-0",			"zinc-plate",													"e")
+	aadd("z-plates-0",			"aluminium-plate",										"f")
+	aadd("z-plates-0",			"gold-plate",													"g")
 	
-	aadd("z-plates-1",			"5d-iron-plate",			"a")
-	aadd("z-plates-1",			"5d-copper-plate",			"b")
-	aadd("z-plates-1",			"5d-lead-plate-2",			"c")
-	aadd("z-plates-1",			"5d-tin-plate-2",			"d")
-	aadd("z-plates-1",			"5d-zinc-plate-2",			"e")
-	aadd("z-plates-1",			"5d-aluminium-plate-2",		"f")
-	aadd("z-plates-1",			"5d-gold-plate-2",			"g")
+	aadd("z-plates-1",			"iron-plate",													"a")
+	aadd("z-plates-1",			"5d-iron-plate",											"b")
+	aadd("z-plates-1",			"5d-iron-plate-industrial",						"c")
+	aadd("z-plates-1",			"5d-iron-plate-industrial-dust",			"d")
+	aadd("z-plates-1",			"copper-plate",												"e")
+	aadd("z-plates-1",			"5d-copper-plate",										"f")
+	aadd("z-plates-1",			"5d-copper-plate-industrial",					"g")
+	aadd("z-plates-1",			"5d-copper-plate-industrial-dust",		"h")
 	
-	aadd("z-plates-2",			"steel-plate",				"c")
+	aadd("z-plates-2",			"5d-lead-plate-2",										"a")
+	aadd("z-plates-2",			"5d-tin-plate-2",											"b")
+	aadd("z-plates-2",			"5d-zinc-plate-2",										"c")
+	aadd("z-plates-2",			"5d-aluminium-plate-2",								"d")
+	aadd("z-plates-2",			"5d-gold-plate-2",										"e")
+	aadd("z-plates-2",			"steel-plate",												"f")
 	
 end
 do	--[[automatization]]--
-  if i_exist("5d-basic-inserter-left-90d") then
-	aadd("z-automatization-0",	"burner-inserter",				"a")--
-	aadd("z-automatization-0",	"inserter",						"b")--
-	aadd("z-automatization-0",	"long-handed-inserter",			"c")--
-	aadd("z-automatization-0",	"5d-inserter-speed1-range3",			"d")
-	aadd("z-automatization-0",	"5d-inserter-speed1-range1-close",		"e")
-	aadd("z-automatization-0",	"5d-inserter-speed1-range2-close",		"f")
-	aadd("z-automatization-0",	"5d-inserter-speed1-range3-close",		"g")
+  if mods.dim then
+		aadd("z-automatization-0",	"burner-inserter",				"a")--
+		aadd("z-automatization-0",	"inserter",						"b")--
+		aadd("z-automatization-0",	"long-handed-inserter",			"c")--
+		aadd("z-automatization-0",	"5d-inserter-speed1-range3",			"e")
+		aadd("z-automatization-0",	"5d-inserter-speed1-range1-close",		"f")
+		aadd("z-automatization-0",	"5d-inserter-speed1-range2-close",		"g")
+		aadd("z-automatization-0",	"5d-inserter-speed1-range3-close",		"h")
+		
+		aadd("z-automatization-1",	"filter-inserter",				"a")--
+		aadd("z-automatization-1",	"5d-inserter-smart-speed2-range2",		"b")
+		aadd("z-automatization-1",	"5d-inserter-smart-speed3-range1",		"c")
+		aadd("z-automatization-1",	"5d-inserter-smart-speed2-range1-close","d")
+		aadd("z-automatization-1",	"5d-inserter-smart-speed2-range2-close","e")
+		aadd("z-automatization-1",	"5d-inserter-smart-speed3-range1-close","f")
+		
+		
+		aadd("z-automatization-2",	"fast-inserter",				"a")--
+		aadd("z-automatization-2",	"5d-inserter-speed2-range2",			"b")
+		aadd("z-automatization-2",	"5d-inserter-speed2-range3",			"c")
+		aadd("z-automatization-2",	"5d-inserter-speed2-range1-close",		"d")
+		aadd("z-automatization-2",	"5d-inserter-speed2-range2-close",		"e")
+		aadd("z-automatization-2",	"5d-inserter-speed2-range3-close",		"f")
+		aadd("z-automatization-2",	"stack-inserter",				"g")--
+		aadd("z-automatization-2",	"stack-filter-inserter",		"h")--
+		
+		aadd("z-automatization-3",	"5d-inserter-speed3-range1",			"a")
+		aadd("z-automatization-3",	"5d-inserter-speed3-range2",			"b")
+		aadd("z-automatization-3",	"5d-inserter-speed3-range3",			"c")
+		aadd("z-automatization-3",	"5d-inserter-speed3-range1-close",		"d")
+		aadd("z-automatization-3",	"5d-inserter-speed3-range2-close",		"e")
+		aadd("z-automatization-3",	"5d-inserter-speed3-range3-close",		"f")
+		
+		aadd("z-automatization-4",	"5d-basic-inserter-left-90d",			"a")
+		aadd("z-automatization-4",	"5d-fast-inserter-left-90d",			"b")
+		aadd("z-automatization-4",	"5d-extreme-inserter-left-90d",			"c")
+		aadd("z-automatization-4",	"5d-basic-inserter-left-90d-close",		"d")
+		aadd("z-automatization-4",	"5d-fast-inserter-left-90d-close",		"e")
+		aadd("z-automatization-4",	"5d-extreme-inserter-left-90d-close",	"f")
+		
+		aadd("z-automatization-5",	"5d-basic-inserter-right-90d",			"a")
+		aadd("z-automatization-5",	"5d-fast-inserter-right-90d",			"b")
+		aadd("z-automatization-5",	"5d-extreme-inserter-right-90d",		"c")
+		aadd("z-automatization-5",	"5d-basic-inserter-right-90d-close",	"d")
+		aadd("z-automatization-5",	"5d-fast-inserter-right-90d-close",		"e")
+		aadd("z-automatization-5",	"5d-extreme-inserter-right-90d-close",	"f")
+	end
 	
-	aadd("z-automatization-1",	"filter-inserter",				"a")--
-	aadd("z-automatization-1",	"5d-inserter-smart-speed2-range2",		"b")
-	aadd("z-automatization-1",	"5d-inserter-smart-speed3-range1",		"c")
-	aadd("z-automatization-1",	"5d-inserter-smart-speed2-range1-close","d")
-	aadd("z-automatization-1",	"5d-inserter-smart-speed2-range2-close","e")
-	aadd("z-automatization-1",	"5d-inserter-smart-speed3-range1-close","f")
-	
-	
-	aadd("z-automatization-2",	"fast-inserter",				"a")--
-	aadd("z-automatization-2",	"5d-inserter-speed2-range2",			"b")
-	aadd("z-automatization-2",	"5d-inserter-speed2-range3",			"c")
-	aadd("z-automatization-2",	"5d-inserter-speed2-range1-close",		"d")
-	aadd("z-automatization-2",	"5d-inserter-speed2-range2-close",		"e")
-	aadd("z-automatization-2",	"5d-inserter-speed2-range3-close",		"f")
-	aadd("z-automatization-2",	"stack-inserter",				"g")--
-	aadd("z-automatization-2",	"stack-filter-inserter",		"h")--
-	
-	aadd("z-automatization-3",	"5d-inserter-speed3-range1",			"a")
-	aadd("z-automatization-3",	"5d-inserter-speed3-range2",			"b")
-	aadd("z-automatization-3",	"5d-inserter-speed3-range3",			"c")
-	aadd("z-automatization-3",	"5d-inserter-speed3-range1-close",		"d")
-	aadd("z-automatization-3",	"5d-inserter-speed3-range2-close",		"e")
-	aadd("z-automatization-3",	"5d-inserter-speed3-range3-close",		"f")
-	
-	aadd("z-automatization-4",	"5d-basic-inserter-left-90d",			"a")
-	aadd("z-automatization-4",	"5d-fast-inserter-left-90d",			"b")
-	aadd("z-automatization-4",	"5d-extreme-inserter-left-90d",			"c")
-	aadd("z-automatization-4",	"5d-basic-inserter-left-90d-close",		"d")
-	aadd("z-automatization-4",	"5d-fast-inserter-left-90d-close",		"e")
-	aadd("z-automatization-4",	"5d-extreme-inserter-left-90d-close",	"f")
-	                                                           
-	aadd("z-automatization-5",	"5d-basic-inserter-right-90d",			"a")
-	aadd("z-automatization-5",	"5d-fast-inserter-right-90d",			"b")
-	aadd("z-automatization-5",	"5d-extreme-inserter-right-90d",		"c")
-	aadd("z-automatization-5",	"5d-basic-inserter-right-90d-close",	"d")
-	aadd("z-automatization-5",	"5d-fast-inserter-right-90d-close",		"e")
-	aadd("z-automatization-5",	"5d-extreme-inserter-right-90d-close",	"f")
-  end
-	
+  if z_balance.bob_inserters then
+		ahide("long-handed-inserter","inserter")
+		ahide("5d-inserter-speed1-range3","inserter")
+		ahide("5d-inserter-speed1-range1-close","inserter")
+		ahide("5d-inserter-speed1-range2-close","inserter")
+		ahide("5d-inserter-speed1-range3-close","inserter")
+		ahide("5d-inserter-speed2-range2","fast-inserter")
+		ahide("5d-inserter-speed2-range3","fast-inserter")
+		ahide("5d-inserter-speed2-range1-close","fast-inserter")
+		ahide("5d-inserter-speed2-range2-close","fast-inserter")
+		ahide("5d-inserter-speed2-range3-close","fast-inserter")
+		ahide("5d-inserter-speed3-range1","express-inserter")
+		ahide("5d-inserter-speed3-range2","express-inserter")
+		ahide("5d-inserter-speed3-range3","express-inserter")
+		ahide("5d-inserter-speed3-range1-close","express-inserter")
+		ahide("5d-inserter-speed3-range2-close","express-inserter")
+		ahide("5d-inserter-speed3-range3-close","express-inserter")
+		ahide("5d-basic-inserter-left-90d","inserter")
+		ahide("5d-basic-inserter-right-90d","inserter")
+		ahide("5d-basic-inserter-left-90d-close","inserter")
+		ahide("5d-basic-inserter-right-90d-close","inserter")
+		ahide("5d-fast-inserter-left-90d","fast-inserter")
+		ahide("5d-fast-inserter-right-90d","fast-inserter")
+		ahide("5d-fast-inserter-left-90d-close","fast-inserter")
+		ahide("5d-fast-inserter-right-90d-close","fast-inserter")
+		ahide("5d-extreme-inserter-left-90d","express-inserter")
+		ahide("5d-extreme-inserter-right-90d","express-inserter")
+		ahide("5d-extreme-inserter-left-90d-close","express-inserter")
+		ahide("5d-extreme-inserter-right-90d-close","express-inserter")
+		ahide("5d-inserter-smart-speed2-range1-close","filter-inserter")
+		ahide("5d-inserter-smart-speed2-range2","filter-inserter")
+		ahide("5d-inserter-smart-speed2-range2-close","filter-inserter")
+		ahide("5d-inserter-smart-speed3-range1","express-filter-inserter")
+		ahide("5d-inserter-smart-speed3-range1-close","express-filter-inserter")
+		
+		switch_tech("inserters")
+		switch_tech("inserters-2")
+		switch_tech("inserters-3")
+		switch_tech("close")
+		switch_tech("close-2")
+		switch_tech("close-3")
+		switch_tech("side-inserters")
+		switch_tech("side-inserters-2")
+		switch_tech("side-inserters-3")
+		switch_tech("smart-inserters")
+	end
 end
 do	--[[transport]]--
-	aadd("z-transport-0",		"5d-mk4-transport-belt",				"d")
-	aadd("z-transport-0",		"5d-mk5-transport-belt",				"e")
+	aadd("z-transport-0",		"5d-mk4-transport-belt",							"f")
+	aadd("z-transport-0",		"5d-mk5-transport-belt",							"g")
 	
-	aadd("z-transport-1",		"5d-mk4-transport-belt-to-ground",		"d")
-	aadd("z-transport-1",		"5d-mk5-transport-belt-to-ground",		"e")
+	aadd("z-transport-2",		"5d-mk4-transport-belt-to-ground",		"d")
+	aadd("z-transport-2",		"5d-mk5-transport-belt-to-ground",		"e")
 	
-	aadd("z-transport-2",		"5d-mk1-transport-belt-to-ground-30",	"a")
-	aadd("z-transport-2",		"5d-mk2-transport-belt-to-ground-30",	"b")
-	aadd("z-transport-2",		"5d-mk3-transport-belt-to-ground-30",	"c")
-	aadd("z-transport-2",		"5d-mk4-transport-belt-to-ground-30",	"d")
-	aadd("z-transport-2",		"5d-mk5-transport-belt-to-ground-30",	"e")
+	aadd("z-transport-3",		"5d-mk1-transport-belt-to-ground-30",	"a")
+	aadd("z-transport-3",		"5d-mk2-transport-belt-to-ground-30",	"b")
+	aadd("z-transport-3",		"5d-mk3-transport-belt-to-ground-30",	"c")
+	aadd("z-transport-3",		"5d-mk4-transport-belt-to-ground-30",	"d")
+	aadd("z-transport-3",		"5d-mk5-transport-belt-to-ground-30",	"e")
 	
-	aadd("z-transport-3",		"5d-mk1-transport-belt-to-ground-50",	"a")
-	aadd("z-transport-3",		"5d-mk2-transport-belt-to-ground-50",	"b")
-	aadd("z-transport-3",		"5d-mk3-transport-belt-to-ground-50",	"c")
-	aadd("z-transport-3",		"5d-mk4-transport-belt-to-ground-50",	"d")
-	aadd("z-transport-3",		"5d-mk5-transport-belt-to-ground-50",	"e")
+	aadd("z-transport-4",		"5d-mk1-transport-belt-to-ground-50",	"a")
+	aadd("z-transport-4",		"5d-mk2-transport-belt-to-ground-50",	"b")
+	aadd("z-transport-4",		"5d-mk3-transport-belt-to-ground-50",	"c")
+	aadd("z-transport-4",		"5d-mk4-transport-belt-to-ground-50",	"d")
+	aadd("z-transport-4",		"5d-mk5-transport-belt-to-ground-50",	"e")
 	
-	aadd("z-transport-4",		"5d-mk4-splitter",						"d")
-	aadd("z-transport-4",		"5d-mk5-splitter",						"e")
+	aadd("z-transport-5",		"5d-mk4-splitter",										"f")
+	aadd("z-transport-5",		"5d-mk5-splitter",										"g")
 	
-	aadd("z-transport-9",		"5d-pipe-mk2",							"b")
-	aadd("z-transport-9",		"5d-pipe-mk3",							"c")
+	aadd("z-transport-10",		"5d-pipe-mk2",												"b")
+	aadd("z-transport-10",		"5d-pipe-mk3",												"c")
 	
-	aadd("z-transport-10",		"5d-pipe-to-ground-mk2",				"b")
-	aadd("z-transport-10",		"5d-pipe-to-ground-mk3",				"c")
+	aadd("z-transport-11",	"5d-pipe-to-ground-mk2",							"b")
+	aadd("z-transport-11",	"5d-pipe-to-ground-mk3",							"c")
 	
-	aadd("z-transport-11",		"5d-pipe-to-ground-mk1-30",				"a")
-	aadd("z-transport-11",		"5d-pipe-to-ground-mk2-30",				"b")
-	aadd("z-transport-11",		"5d-pipe-to-ground-mk3-30",				"c")
+	aadd("z-transport-12",	"5d-pipe-to-ground-mk1-30",						"a")
+	aadd("z-transport-12",	"5d-pipe-to-ground-mk2-30",						"b")
+	aadd("z-transport-12",	"5d-pipe-to-ground-mk3-30",						"c")
 	
-	aadd("z-transport-12",		"5d-pipe-to-ground-mk1-50",				"a")
-	aadd("z-transport-12",		"5d-pipe-to-ground-mk2-50",				"b")
-	aadd("z-transport-12",		"5d-pipe-to-ground-mk3-50",				"c")
+	aadd("z-transport-13",	"5d-pipe-to-ground-mk1-50",						"a")
+	aadd("z-transport-13",	"5d-pipe-to-ground-mk2-50",						"b")
+	aadd("z-transport-13",	"5d-pipe-to-ground-mk3-50",						"c")
 	
 	if use_graphics_tunnings then
 		local function set_sprite(pic,mk)
@@ -260,19 +315,19 @@ do	--[[transport]]--
 			data.raw["underground-belt"]["5d-mk5-transport-belt-to-ground"].structure.direction_in.sheet.filename = "__ZGroupChange__/graphics/entity/5d_gr_5.png"
 			data.raw["underground-belt"]["5d-mk5-transport-belt-to-ground"].structure.direction_out.sheet.filename = "__ZGroupChange__/graphics/entity/5d_gr_5.png"
 		end
-			
+		
 		if i_exist("5d-mk1-transport-belt-to-ground-30") then
 			data.raw["underground-belt"]["5d-mk1-transport-belt-to-ground-30"].collision_box = {{-0.4, -0.4}, {0.4, 0.4}}
 			data.raw["underground-belt"]["5d-mk1-transport-belt-to-ground-30"].selection_box = {{-0.5, -0.5}, {0.5, 0.5}}
-			data.raw["underground-belt"]["5d-mk1-transport-belt-to-ground-30"].underground_sprite = set_sprite("u_line_y","_3") end
+		data.raw["underground-belt"]["5d-mk1-transport-belt-to-ground-30"].underground_sprite = set_sprite("u_line_y","_3") end
 		if i_exist("5d-mk2-transport-belt-to-ground-30") then
 			data.raw["underground-belt"]["5d-mk2-transport-belt-to-ground-30"].collision_box = {{-0.4, -0.4}, {0.4, 0.4}}
 			data.raw["underground-belt"]["5d-mk2-transport-belt-to-ground-30"].selection_box = {{-0.5, -0.5}, {0.5, 0.5}}
-			data.raw["underground-belt"]["5d-mk2-transport-belt-to-ground-30"].underground_sprite = set_sprite("u_line_r","_3") end
+		data.raw["underground-belt"]["5d-mk2-transport-belt-to-ground-30"].underground_sprite = set_sprite("u_line_r","_3") end
 		if i_exist("5d-mk3-transport-belt-to-ground-30") then
 			data.raw["underground-belt"]["5d-mk3-transport-belt-to-ground-30"].collision_box = {{-0.4, -0.4}, {0.4, 0.4}}
 			data.raw["underground-belt"]["5d-mk3-transport-belt-to-ground-30"].selection_box = {{-0.5, -0.5}, {0.5, 0.5}}
-			data.raw["underground-belt"]["5d-mk3-transport-belt-to-ground-30"].underground_sprite = set_sprite("u_line_b","_3") end
+		data.raw["underground-belt"]["5d-mk3-transport-belt-to-ground-30"].underground_sprite = set_sprite("u_line_b","_3") end
 		if i_exist("5d-mk4-transport-belt-to-ground-30") then
 			data.raw["underground-belt"]["5d-mk4-transport-belt-to-ground-30"].collision_box = {{-0.4, -0.4}, {0.4, 0.4}}
 			data.raw["underground-belt"]["5d-mk4-transport-belt-to-ground-30"].selection_box = {{-0.5, -0.5}, {0.5, 0.5}}
@@ -287,19 +342,19 @@ do	--[[transport]]--
 			data.raw["underground-belt"]["5d-mk5-transport-belt-to-ground-30"].structure.direction_in.sheet.filename = "__ZGroupChange__/graphics/entity/5d_gr_5.png"
 			data.raw["underground-belt"]["5d-mk5-transport-belt-to-ground-30"].structure.direction_out.sheet.filename = "__ZGroupChange__/graphics/entity/5d_gr_5.png"
 		end
-			
+		
 		if i_exist("5d-mk1-transport-belt-to-ground-50") then
 			data.raw["underground-belt"]["5d-mk1-transport-belt-to-ground-50"].collision_box = {{-0.4, -0.4}, {0.4, 0.4}}
 			data.raw["underground-belt"]["5d-mk1-transport-belt-to-ground-50"].selection_box = {{-0.5, -0.5}, {0.5, 0.5}}
-			data.raw["underground-belt"]["5d-mk1-transport-belt-to-ground-50"].underground_sprite = set_sprite("u_line_y","_5") end
+		data.raw["underground-belt"]["5d-mk1-transport-belt-to-ground-50"].underground_sprite = set_sprite("u_line_y","_5") end
 		if i_exist("5d-mk2-transport-belt-to-ground-50") then
 			data.raw["underground-belt"]["5d-mk2-transport-belt-to-ground-50"].collision_box = {{-0.4, -0.4}, {0.4, 0.4}}
 			data.raw["underground-belt"]["5d-mk2-transport-belt-to-ground-50"].selection_box = {{-0.5, -0.5}, {0.5, 0.5}}
-			data.raw["underground-belt"]["5d-mk2-transport-belt-to-ground-50"].underground_sprite = set_sprite("u_line_r","_5") end
+		data.raw["underground-belt"]["5d-mk2-transport-belt-to-ground-50"].underground_sprite = set_sprite("u_line_r","_5") end
 		if i_exist("5d-mk3-transport-belt-to-ground-50") then
 			data.raw["underground-belt"]["5d-mk3-transport-belt-to-ground-50"].collision_box = {{-0.4, -0.4}, {0.4, 0.4}}
 			data.raw["underground-belt"]["5d-mk3-transport-belt-to-ground-50"].selection_box = {{-0.5, -0.5}, {0.5, 0.5}}
-			data.raw["underground-belt"]["5d-mk3-transport-belt-to-ground-50"].underground_sprite = set_sprite("u_line_b","_5") end
+		data.raw["underground-belt"]["5d-mk3-transport-belt-to-ground-50"].underground_sprite = set_sprite("u_line_b","_5") end
 		if i_exist("5d-mk4-transport-belt-to-ground-50") then
 			data.raw["underground-belt"]["5d-mk4-transport-belt-to-ground-50"].collision_box = {{-0.4, -0.4}, {0.4, 0.4}}
 			data.raw["underground-belt"]["5d-mk4-transport-belt-to-ground-50"].selection_box = {{-0.5, -0.5}, {0.5, 0.5}}
@@ -314,7 +369,7 @@ do	--[[transport]]--
 			data.raw["underground-belt"]["5d-mk5-transport-belt-to-ground-50"].structure.direction_in.sheet.filename = "__ZGroupChange__/graphics/entity/5d_gr_5.png"
 			data.raw["underground-belt"]["5d-mk5-transport-belt-to-ground-50"].structure.direction_out.sheet.filename = "__ZGroupChange__/graphics/entity/5d_gr_5.png"
 		end
-
+		
 		if i_exist("5d-pipe-to-ground-mk2") then
 			data.raw["pipe-to-ground"]["5d-pipe-to-ground-mk2"].underground_sprite = set_sprite("u_pipe","_3")
 		end
@@ -415,19 +470,28 @@ do	--[[transport]]--
 	
 end
 do	--[[logistic]]--
-	aadd("z-logistic-1",		"5d-roboport-2",					"b")
+	aadd("z-logistic-2",		"5d-roboport-2",											"c")
 	
-	aadd("z-logistic-1",		"5d-roboport-2",					"b")
-	aadd("z-logistic-1",		"5d-logistic-robot-2",				"d")
-	aadd("z-logistic-1",		"5d-construction-robot-2",			"f")
+	aadd("z-logistic-5",		"5d-logistic-robot-2",								"c")
+	aadd("z-logistic-5",		"5d-logistic-robot-3",								"f")
+	aadd("z-logistic-5",		"5d-logistic-robot-4",								"h")
 	
-	aadd("z-logistic-3",		"5d-storage",						"a")
-	aadd("z-logistic-3",		"5d-requester",						"b")
-	aadd("z-logistic-3",		"5d-passive",						"c")
-	aadd("z-logistic-3",		"5d-active",						"d")
+	aadd("z-logistic-6",		"5d-construction-robot-2",						"c")
+	aadd("z-logistic-6",		"5d-construction-robot-3",						"f")
+	aadd("z-logistic-6",		"5d-construction-robot-4",						"h")
+	aadd("z-logistic-6",		"5d-construction-robot-p",						"i")
 	
-	aadd("z-logistic-8",		"5d-aluminium-wire",				"d")
-	aadd("z-logistic-8",		"5d-gold-wire",						"e")
+	aadd("z-logistic-8",		"5d-storage",													"a")
+	aadd("z-logistic-8",		"5d-requester",												"b")
+	aadd("z-logistic-8",		"5d-passive",													"c")
+	aadd("z-logistic-8",		"5d-active",													"d")
+	aadd("z-logistic-8",		"logistic-chest-storage-2",						"e")
+	aadd("z-logistic-8",		"logistic-chest-requester-2",					"f")
+	aadd("z-logistic-8",		"logistic-chest-passive-provider-2",	"g")
+	aadd("z-logistic-8",		"logistic-chest-active-provider-2",		"h")
+	
+	aadd("z-logistic-11",		"5d-aluminium-wire",									"d")
+	aadd("z-logistic-11",		"5d-gold-wire",												"e")
 	
 	if use_graphics_tunnings then
 		zgc.set_icon("5d-roboport-2", "__ZGroupChange__/graphics/icons/roboport2.png")
@@ -506,39 +570,44 @@ do	--[[logistic]]--
 			},
 		})
 	end
-
+	
 end
 do	--[[energy]]--
-	aadd("z-energy-1",			"5d-boiler",					"e")
-	aadd("z-energy-1",			"5d-boiler-2",					"f")
+	aadd("z-energy-1",			"5d-boiler",								"c")
+	aadd("z-energy-1",			"5d-boiler-2",							"f")
 	
-	aadd("z-energy-2",			"5d-steam-engine-2",			"d")
-	aadd("z-energy-2",			"5d-steam-engine-3",			"e")
+	aadd("z-energy-2",			"5d-steam-engine-2",				"c")
+	aadd("z-energy-2",			"5d-steam-engine-3",				"f")
 	
-	aadd("z-energy-3",			"5d-basic-accumulator-2",		"b")
-	aadd("z-energy-3",			"5d-basic-accumulator-3",		"c")
+	aadd("z-energy-4",			"5d-basic-accumulator-2",		"b")
+	aadd("z-energy-4",			"5d-basic-accumulator-3",		"d")
 	
-	aadd("z-energy-4",			"5d-solar-panel-2",				"c")
-	aadd("z-energy-4",			"5d-solar-panel-3",				"e")
+	aadd("z-energy-5",			"5d-solar-panel-2",					"c")
+	aadd("z-energy-5",			"5d-solar-panel-3",					"f")
 	
-	aadd("z-energy-7",			"5d-electric-pole-4",			"f")
-	
-	aadd("z-energy-8",			"5d-electric-pole-5",			"i")
-	aadd("z-energy-8",			"5d-electric-pole-6",			"j")
+	aadd("z-energy-11",			"5d-electric-pole-4",				"h")	
+	aadd("z-energy-11",			"5d-electric-pole-5",				"i")
+	aadd("z-energy-11",			"5d-electric-pole-6",				"j")
 	
 end
 do	--[[defense]]--
-	aadd("z-defense-0",			"5d-metal-wall",				"c")
-	aadd("z-defense-0",			"5d-gate",						"f")
+	aadd("z-defense-0",			"5d-metal-wall",											"e")
 	
-	if i_exist("bob-gun-turret-2") then
-		aadd("z-defense-4",		"5d-gun-turret-small",			"b")
-		aadd("z-defense-4",		"5d-gun-turret-big",			"c")
-		
-		aadd("z-defense-5",		"5d-laser-turret-small",		"b")
-		aadd("z-defense-5",		"5d-laser-turret-big",			"c")
+	aadd("z-defense-1",			"5d-gate",														"b")
+	
+	aadd("z-defense-4",			"5d-gun-turret-small",								"b")
+	aadd("z-defense-4",			"5d-gun-turret-big",									"e")
+	
+	aadd("z-defense-5",			"5d-laser-turret-small",							"a")
+	aadd("z-defense-5",			"5d-laser-turret-big",								"d")
+	aadd("z-defense-5",			"5d-tesla-turret",										"h")
+	if mods.dim then
+		rhide("z-defense-4",			"5d-gun-turret-small",								"b")
+		rhide("z-defense-4",			"5d-gun-turret-big",									"c")
+		rhide("z-defense-5",			"5d-tesla-turret",										"b")
+		rhide("z-defense-5",			"5d-laser-turret-small",							"c")
+		rhide("z-defense-5",			"5d-laser-turret-big",								"d")
 	end
-	
 end
 do	--[[intermediate]]--
 	aadd("z-intermediate-1",		"5d-gold-circuit",				"i")
@@ -609,7 +678,6 @@ do	--[[trains-vehicles]]--
 	aadd("z-vehicles-2",		"5d-boat",						"b")
 	aadd("z-vehicles-2",		"5d-air-plane",					"c")
 	
-	aadd("z-vehicles-3",		"artillery-shell",				"d")
 	aadd("z-vehicles-3",		"5d-tank-machine-gun",			"d")
 end
 do	--[[decorative]]--
@@ -638,3 +706,35 @@ do	--[[decorative]]--
 	end
 	
 end
+do  --[[weaponry]]--
+	aadd("z-weaponry-11",		"artillery-shell",						"h")
+end
+do
+	--Changes 5Dim Tin recipe output to make sure to use Bob's Tin instead of 5Dim Tin Plates
+  if i_exist("tin-plate") and i_exist("tin-plate-2") then
+		data.raw.recipe["tin-plate"].result = "tin-plate"
+		data.raw.recipe["tin-plate-2"].result = "tin-plate"
+		aadd("z-plates-9",			"tin-plate",											"da")
+		aadd("z-plates-9",			"tin-plate-2",										"db")
+	end
+	if data.raw.item["5d-tin-plate"] then
+		zgc.r_replace_ingredient_in_all("5d-tin-plate", "tin-plate")
+	end
+	--Hide 5Dim Primary Pipes if Bob's mod pipes exist
+	if data.raw.item["5d-pipe-mk2"] and data.raw.item["copper-pipe"] then
+		ahide("5d-pipe-mk2")
+		ahide("5d-pipe-mk3")
+		ahide("5d-pipe-to-ground-mk2")
+		ahide("5d-pipe-to-ground-mk3")
+		ahide("5d-pipe-to-ground-mk1-30")
+		ahide("5d-pipe-to-ground-mk2-30")
+		ahide("5d-pipe-to-ground-mk3-30")
+		ahide("5d-pipe-to-ground-mk1-50")
+		ahide("5d-pipe-to-ground-mk2-50")
+		ahide("5d-pipe-to-ground-mk3-50")
+		zgc.r_replace_ingredient_in_all("5d-pipe-mk2", "copper-pipe")
+		zgc.r_replace_ingredient_in_all("5d-pipe-mk3", "steel-pipe")
+		zgc.r_replace_ingredient_in_all("5d-pipe-mk2", "copper-pipe")
+		zgc.r_replace_ingredient_in_all("5d-pipe-mk3", "steel-pipe")
+	end
+end	

@@ -2,107 +2,122 @@ local allow_changes = z_balance.youki_eng
 
 local eg = {}
 local ag = {}
-	
-if i_exist("ye_overheater") then
+
+if mods.yuoki_engines then
 	zgc.add_main_group("engines")
 	zgc.add_main_group("agronomies")
-
+	
 	for i=0,9 do zgc.get_group_name("z-engines-"..i,"") end
-	for i=0,9 do zgc.get_group_name("z-agronomies-"..i,"") end
+	for i=0,21 do zgc.get_group_name("z-agronomies-"..i,"") end
 	
 	for _,recipe in pairs(data.raw.recipe) do
-
+		
 		if recipe.subgroup == "yie-engines" then --Engines
 			recipe.group = "zgc-engines"
 			recipe.subgroup = "zgc-engines-0"
 			table.insert(eg,recipe.name)
-		end
-		if recipe.subgroup == "yie_machinery" then --machinery
+			elseif recipe.subgroup == "yie_machinery" then --machinery
 			recipe.group = "zgc-engines"
 			recipe.subgroup = "zgc-engines-1"
 			table.insert(eg,recipe.name)
-		end
-		if recipe.subgroup == "yie_machinery2" then --machinery2
+			elseif recipe.subgroup == "yie_machinery2" then --machinery2
 			recipe.group = "zgc-engines"
 			recipe.subgroup = "zgc-engines-2"
 			table.insert(eg,recipe.name)
-		end
-		if recipe.subgroup == "yie-fluids" then --all fluids (MF)
+			elseif recipe.subgroup == "yie-fluids" then --all fluids (MF)
 			recipe.group = "zgc-engines"
 			recipe.subgroup = "zgc-engines-3"
 			table.insert(eg,recipe.name)
-		end
-		if recipe.subgroup == "yie-parts" then --building parts
+			elseif recipe.subgroup == "yie-parts" then --building parts
 			recipe.group = "zgc-engines"
 			recipe.subgroup = "zgc-engines-4"
 			table.insert(eg,recipe.name)
-		end
-		if recipe.subgroup == "yie-processed" then --products
+			elseif recipe.subgroup == "yie_tubes" then --tubes
 			recipe.group = "zgc-engines"
 			recipe.subgroup = "zgc-engines-5"
 			table.insert(eg,recipe.name)
-		end
-		if recipe.subgroup == "yie-exp" then --temporary experimental stuff
-			recipe.group = "zgc-engines"
-			recipe.subgroup = "zgc-engines-5"
-			table.insert(eg,recipe.name)
-		end
-		if string.find(recipe.name,"empty")
-		and recipe.subgroup == "yie_fluid_handle" then --fluid handling
-			recipe.group = "zgc-engines"
-			recipe.subgroup = "zgc-engines-7"
-			table.insert(eg,recipe.name)
-		elseif recipe.subgroup == "yie_fluid_handle" then
+			elseif recipe.subgroup == "yie-processed" then --products
 			recipe.group = "zgc-engines"
 			recipe.subgroup = "zgc-engines-6"
 			table.insert(eg,recipe.name)
-		end
-
-		if recipe.subgroup == "yie_agromachinery" then --agriculture machinery
+			elseif recipe.subgroup == "yie-exp" then --temporary experimental stuff
+			recipe.group = "zgc-engines"
+			recipe.subgroup = "zgc-engines-7"
+			table.insert(eg,recipe.name)
+			elseif string.find(recipe.name,"empty")
+			and recipe.subgroup == "yie_fluid_handle" then --fluid handling
+			recipe.group = "zgc-engines"
+			recipe.subgroup = "zgc-engines-9"
+			table.insert(eg,recipe.name)
+			elseif recipe.subgroup == "yie_fluid_handle" then
+			recipe.group = "zgc-engines"
+			recipe.subgroup = "zgc-engines-8"
+			table.insert(eg,recipe.name)
+			elseif recipe.subgroup == "yie_agromachinery" then --agriculture machinery
 			recipe.group = "zgc-agronomies"
-			recipe.subgroup = "zgc-agronomies-0"
-			table.insert(ag,recipe.name)
-		end
-		if recipe.subgroup == "yie_agroproducts" then --agriculture products
+			recipe.subgroup = "zgc-agronomies-10"
+			table.insert(eg,recipe.name)
+			elseif recipe.subgroup == "yie_agroproducts" then --agriculture products
 			recipe.group = "zgc-agronomies"
-			recipe.subgroup = "zgc-agronomies-1"
-			table.insert(ag,recipe.name)
-		end
-		if recipe.subgroup == "yie_farming" then --farming stuff
+			recipe.subgroup = "zgc-agronomies-11"
+			table.insert(eg,recipe.name)
+			elseif recipe.subgroup == "yie_agroproducts_crafted" then --agriculture crafted products
 			recipe.group = "zgc-agronomies"
-			recipe.subgroup = "zgc-agronomies-2"
-			table.insert(ag,recipe.name)
-		end
-		if recipe.subgroup == "yie_agro_package" then --agriculture packages
+			recipe.subgroup = "zgc-agronomies-12"
+			table.insert(eg,recipe.name)
+			elseif recipe.subgroup == "yie_agro_package" then --agriculture packages
 			recipe.group = "zgc-agronomies"
-			recipe.subgroup = "zgc-agronomies-3"
-			table.insert(ag,recipe.name)
-		end
-		if recipe.subgroup == "yie_trades" then --trade stuff
+			recipe.subgroup = "zgc-agronomies-13"
+			table.insert(eg,recipe.name)
+			elseif recipe.subgroup == "yie_agro_package_l2" then --agriculture packages
 			recipe.group = "zgc-agronomies"
-			recipe.subgroup = "zgc-agronomies-3"
-			table.insert(ag,recipe.name)
-		end
-		if recipe.subgroup == "yie_animals" then --ranch stuff
+			recipe.subgroup = "zgc-agronomies-13"
+			table.insert(eg,recipe.name)
+			elseif recipe.subgroup == "yie_agroproducts_packages" then --agriculture packages
 			recipe.group = "zgc-agronomies"
-			recipe.subgroup = "zgc-agronomies-4"
-			table.insert(ag,recipe.name)
-		end
-		if recipe.subgroup == "yie_fish" then --fish-stuff
+			recipe.subgroup = "zgc-agronomies-13"
+			table.insert(eg,recipe.name)
+			elseif recipe.subgroup == "yie_agro_package_12" then --agriculture packages
 			recipe.group = "zgc-agronomies"
-			recipe.subgroup = "zgc-agronomies-4"
-			table.insert(ag,recipe.name)
-		end
-		if recipe.subgroup == "yie_dnaline" then --DNA-Line
+			recipe.subgroup = "zgc-agronomies-14"
+			table.insert(eg,recipe.name)
+			elseif recipe.subgroup == "yie_trades_line1" then --harvest stuff
 			recipe.group = "zgc-agronomies"
-			recipe.subgroup = "zgc-agronomies-5"
-			table.insert(ag,recipe.name)
+			recipe.subgroup = "zgc-agronomies-15"
+			table.insert(eg,recipe.name)
+			elseif recipe.subgroup == "yie_trades_line2" then --harvest stuff
+			recipe.group = "zgc-agronomies"
+			recipe.subgroup = "zgc-agronomies-16"
+			table.insert(eg,recipe.name)
+			elseif recipe.subgroup == "yie_farming" then --harvest stuff
+			recipe.group = "zgc-agronomies"
+			recipe.subgroup = "zgc-agronomies-17"
+			table.insert(eg,recipe.name)
+			elseif recipe.subgroup == "yie_animals" then --ranch stuff
+			recipe.group = "zgc-agronomies"
+			recipe.subgroup = "zgc-agronomies-18"
+			table.insert(eg,recipe.name)
+			elseif recipe.subgroup == "yie_fish" then --fish-stuff
+			recipe.group = "zgc-agronomies"
+			recipe.subgroup = "zgc-agronomies-19"
+			table.insert(eg,recipe.name)
+			elseif recipe.subgroup == "yie_dnaline" then --DNA-Line
+			recipe.group = "zgc-agronomies"
+			recipe.subgroup = "zgc-agronomies-20"
+			table.insert(eg,recipe.name)
+			elseif recipe.subgroup == "yie_trades_import_line1" then --import stuff
+			recipe.group = "zgc-agronomies"
+			recipe.subgroup = "zgc-agronomies-21"
+			table.insert(eg,recipe.name)
+			elseif recipe.subgroup == "yie_engines_import_a" then --import stuff
+			recipe.group = "zgc-agronomies"
+			recipe.subgroup = "zgc-agronomies-21"
+			table.insert(eg,recipe.name)
 		end
-
 	end
 	
 	for _,item in pairs(data.raw.item) do
-
+		
 		if item.subgroup == "yie-engines"		then item.group = "zgc-engines";    item.subgroup = "zgc-engines-0" end --Engines
 		if item.subgroup == "yie-exp"			then item.group = "zgc-engines";    item.subgroup = "zgc-engines-1" end --temporary experimental stuff
 		if item.subgroup == "yie-fluids"		then item.group = "zgc-engines";    item.subgroup = "zgc-engines-2" end --all fluids (MF)
@@ -119,7 +134,7 @@ if i_exist("ye_overheater") then
 		if item.subgroup == "yie_farming"		then item.group = "zgc-agronomies"; item.subgroup = "zgc-agronomies-5" end --farming stuff
 		if item.subgroup == "yie_fish"			then item.group = "zgc-agronomies"; item.subgroup = "zgc-agronomies-6" end --fish-stuff
 		if item.subgroup == "yie_trades"		then item.group = "zgc-agronomies"; item.subgroup = "zgc-agronomies-7" end --trade stuff
-
+		
 	end
 end
 
@@ -137,17 +152,17 @@ do	--[[agronomies]]--
 	aadd("z-agronomies-2",		"ye_granulate_corn_recipe",		"z") -- 
 	aadd("z-agronomies-2",		"ye_biofuel_recipe",			"z") -- 
 	aadd("z-agronomies-2",		"ye_slurry2ethanol_recipe",		"z") -- 
-	
 end
 
 do	--[[TECH]]--
-	if z_balance.youki_tech and i_exist("ye_overheater") then
+	if z_balance.youki_tech and mods.yuoki_engines then
 		
 		data:extend({
 			{
 				type = "technology",
 				name = "yuoki_engines",
 				icon = "__ZGroupChange__/graphics/icons/tech/yuoki_engines.png",
+				icon_size = 64,
 				prerequisites = {"yuoki_technology"},
 				effects = {},
 				unit = {
@@ -164,6 +179,7 @@ do	--[[TECH]]--
 				type = "technology",
 				name = "yuoki_engines-2",
 				icon = "__ZGroupChange__/graphics/icons/tech/yuoki_engines.png",
+				icon_size = 64,
 				prerequisites = {"yuoki_engines"},
 				effects = {},
 				unit = {
@@ -182,6 +198,7 @@ do	--[[TECH]]--
 				type = "technology",
 				name = "yuoki_engines-3",
 				icon = "__ZGroupChange__/graphics/icons/tech/yuoki_engines.png",
+				icon_size = 64,
 				prerequisites = {"yuoki_engines-2"},
 				effects = {},
 				unit = {
@@ -202,6 +219,7 @@ do	--[[TECH]]--
 				type = "technology",
 				name = "yuoki_agronomie",
 				icon = "__ZGroupChange__/graphics/icons/tech/yuoki_agronomie.png",
+				icon_size = 64,
 				prerequisites = {"yuoki_technology"},
 				effects = {},
 				unit = {
@@ -218,6 +236,7 @@ do	--[[TECH]]--
 				type = "technology",
 				name = "yuoki_agronomie-2",
 				icon = "__ZGroupChange__/graphics/icons/tech/yuoki_agronomie.png",
+				icon_size = 64,
 				prerequisites = {"yuoki_agronomie"},
 				effects = {},
 				unit = {
@@ -236,6 +255,7 @@ do	--[[TECH]]--
 				type = "technology",
 				name = "yuoki_agronomie-3",
 				icon = "__ZGroupChange__/graphics/icons/tech/yuoki_agronomie.png",
+				icon_size = 64,
 				prerequisites = {"yuoki_agronomie-2"},
 				effects = {},
 				unit = {

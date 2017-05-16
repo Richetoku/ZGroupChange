@@ -1,49 +1,55 @@
 local allow_changes = z_balance.vanila
 
+for i=0,10 do zgc.get_group_name("z-barreling-"..i,"") end
+for i=0,20 do zgc.get_group_name("z-armor-"..i,"") end
+for i=0,20 do zgc.get_group_name("z-liquids-"..i,"") end
+for i=0,20 do zgc.get_group_name("z-chemistry-"..i,"") end
+
 do	--[[gathering]]--
-	aadd("z-gathering-0",		"iron-axe",					"a")
-	aadd("z-gathering-0",		"steel-axe",				"b")
-	aadd("z-gathering-0",		"repair-pack",				"i")
+	aadd("z-gathering-0",		"iron-axe",								"a")
+	aadd("z-gathering-0",		"steel-axe",							"b")
+	aadd("z-gathering-0",		"repair-pack",						"i")
 	
-	aadd("z-gathering-1",		"wooden-chest",				"a")
-	aadd("z-gathering-1",		"iron-chest",				"b")
-	aadd("z-gathering-1",		"steel-chest",				"c")
+	aadd("z-gathering-1",		"wooden-chest",						"a")
+	aadd("z-gathering-1",		"iron-chest",							"b")
+	aadd("z-gathering-1",		"steel-chest",						"c")
 	
-	aadd("z-gathering-3",		"storage-tank",				"a")
+	aadd("z-gathering-3",		"storage-tank",						"a")
 	
-	aadd("z-gathering-4",		"burner-mining-drill",		"a")
+	aadd("z-gathering-5",		"burner-mining-drill",		"a")
+	aadd("z-gathering-5",		"electric-mining-drill",	"b")
 	
-	aadd("z-gathering-6",		"electric-mining-drill",	"a")
 	
+	aadd("z-gathering-8",		"offshore-pump",					"a")
+	aadd("z-gathering-8",		"pumpjack",								"b")
 	
-	aadd("z-gathering-8",		"offshore-pump",			"a")
-	aadd("z-gathering-8",		"pumpjack",					"d")
-	
-	aadd("z-gathering-10",		"small-pump",				"a")
+	aadd("z-gathering-11",	"pump",										"a")
 	
 end
 do	--[[production]]--
-	aadd("z-production-0",		"stone-furnace",			"a")
-	aadd("z-production-0",		"steel-furnace",			"e")
-	aadd("z-production-0",		"electric-furnace",			"c")
+	aadd("z-production-0",		"stone-furnace",					"a")
+	aadd("z-production-0",		"steel-furnace",					"c")
+	aadd("z-production-0",		"electric-furnace",				"d")
 	
-	aadd("z-production-4",		"assembling-machine-1",		"a")
-	aadd("z-production-4",		"assembling-machine-2",		"b")
-	aadd("z-production-4",		"assembling-machine-3",		"c")
+	aadd("z-production-4",		"assembling-machine-1",		"d")
+	aadd("z-production-4",		"assembling-machine-2",		"f")
+	aadd("z-production-4",		"assembling-machine-3",		"h")
 	
-	aadd("z-production-6",		"oil-refinery",				"a")
+	aadd("z-production-6",		"oil-refinery",						"a")
 	
-	aadd("z-production-7",		"chemical-plant",			"a")
+	aadd("z-production-7",		"chemical-plant",					"a")
 end
 do	--[[resources]]--
 	aadd("z-resources-0",		"raw-wood",					"a")
 	aadd("z-resources-0",		"wood",						"b")
 	aadd("z-resources-0",		"sulfur",					"d")
 	
-	aadd("z-resources-3",		"coal",						"a")
-	aadd("z-resources-3",		"stone",					"c")
-	aadd("z-resources-3",		"iron-ore",					"d")
-	aadd("z-resources-3",		"copper-ore",				"e")
+	aadd("z-resources-2",		"coal",						"a")
+	aadd("z-resources-2",		"solid-fuel",			"b")
+	
+	aadd("z-resources-3",		"stone",					"a")
+	aadd("z-resources-3",		"iron-ore",					"b")
+	aadd("z-resources-3",		"copper-ore",				"c")
 	
   if allow_changes then
 	data:extend({
@@ -66,8 +72,8 @@ do	--[[resources]]--
   end
 end
 do	--[[plates]]--
-	aadd("z-plates-0",			"iron-plate",				"a")
-	aadd("z-plates-0",			"copper-plate",				"b")
+	aadd("z-plates-0",			"iron-plate",					"a")
+	aadd("z-plates-0",			"copper-plate",				"d")
 	
 	aadd("z-plates-1",			"steel-plate",				"a")
 	
@@ -112,21 +118,21 @@ do	--[[automatization]]--
 	
 end
 do	--[[transport]]--
-	aadd("z-transport-0",		"transport-belt",			"a")
-	aadd("z-transport-0",		"fast-transport-belt",		"b")
-	aadd("z-transport-0",		"express-transport-belt",	"c")
+	aadd("z-transport-0",		"transport-belt",							"a")
+	aadd("z-transport-0",		"fast-transport-belt",				"b")
+	aadd("z-transport-0",		"express-transport-belt",			"c")
 	
-	aadd("z-transport-1",		"underground-belt",			"a")
-	aadd("z-transport-1",		"fast-underground-belt",	"b")
-	aadd("z-transport-1",		"express-underground-belt",	"c")
+	aadd("z-transport-2",		"underground-belt",						"a")
+	aadd("z-transport-2",		"fast-underground-belt",			"b")
+	aadd("z-transport-2",		"express-underground-belt",		"c")
 	
-	aadd("z-transport-4",		"splitter",					"a")
-	aadd("z-transport-4",		"fast-splitter",			"b")
-	aadd("z-transport-4",		"express-splitter",			"c")
+	aadd("z-transport-5",		"splitter",										"a")
+	aadd("z-transport-5",		"fast-splitter",							"b")
+	aadd("z-transport-5",		"express-splitter",						"c")
 	
-	aadd("z-transport-9",		"pipe",						"a")
+	aadd("z-transport-9",		"pipe",												"a")
 	
-	aadd("z-transport-10",		"pipe-to-ground",			"a")
+	aadd("z-transport-9",		"pipe-to-ground",							"b")
 	
 	if use_graphics_tunnings then
 		if i_exist("fast-underground-belt") then
@@ -151,88 +157,69 @@ do	--[[logistic]]--
 	aadd("z-logistic-0",		"blueprint",						"b")
 	aadd("z-logistic-0",		"deconstruction-planner",			"c")
 	
-	aadd("z-logistic-1",		"roboport",							"a")
-	aadd("z-logistic-1",		"logistic-robot",					"c")
-	aadd("z-logistic-1",		"construction-robot",				"e")
+	aadd("z-logistic-1",		"roboport",										"a")
+	aadd("z-logistic-1",		"logistic-robot",							"c")
+	aadd("z-logistic-1",		"construction-robot",					"e")
 	
-	aadd("z-logistic-2",		"logistic-chest-storage",			"a")
-	aadd("z-logistic-2",		"logistic-chest-requester",			"b")
-	aadd("z-logistic-2",		"logistic-chest-passive-provider",	"c")
-	aadd("z-logistic-2",		"logistic-chest-active-provider",	"d")
+	aadd("z-logistic-7",		"logistic-chest-storage",						"a")
+	aadd("z-logistic-7",		"logistic-chest-requester",					"b")
+	aadd("z-logistic-7",		"logistic-chest-passive-provider",	"c")
+	aadd("z-logistic-7",		"logistic-chest-active-provider",		"d")
 	
-	aadd("z-logistic-8",		"copper-cable",						"a")
-	aadd("z-logistic-8",		"red-wire",							"b")
-	aadd("z-logistic-8",		"green-wire",						"c")
+	aadd("z-logistic-11",		"copper-cable",						"a")
+	aadd("z-logistic-11",		"red-wire",							"b")
+	aadd("z-logistic-11",		"green-wire",						"c")
 	
-	aadd("z-logistic-9",		"arithmetic-combinator",			"a")
-	aadd("z-logistic-9",		"decider-combinator",				"b")
-	aadd("z-logistic-9",		"constant-combinator",				"c")
-	aadd("z-logistic-9",		"power-switch",						"d")
+	aadd("z-logistic-12",		"arithmetic-combinator",			"a")
+	aadd("z-logistic-12",		"decider-combinator",					"b")
+	aadd("z-logistic-12",		"constant-combinator",				"c")
+	
+	aadd("z-logistic-16",		"programmable-speaker",				"d")
+	aadd("z-logistic-16",		"power-switch",								"e")
 end
 do	--[[energy]]--
-	aadd("z-energy-0",			"solid-fuel",				"a")
+	aadd("z-energy-1",			"boiler",											"a")
 	
-	aadd("z-energy-1",			"boiler",					"a")
+	aadd("z-energy-2",			"steam-engine",								"a")
 	
-	aadd("z-energy-2",			"steam-engine",				"a")
 	
-	aadd("z-energy-3",			"accumulator",				"a")
+	aadd("z-energy-4",			"accumulator",								"a")
 	
-	aadd("z-energy-4",			"solar-panel",				"a")
+	aadd("z-energy-5",			"solar-panel",								"a")
 	
-	aadd("z-energy-7",			"small-electric-pole",		"b")
-	aadd("z-energy-7",			"medium-electric-pole",		"c")
+	aadd("z-energy-6",			"steam-turbine",							"a")
 	
-	aadd("z-energy-8",			"big-electric-pole",		"a")
-	aadd("z-energy-8",			"substation",				"e")
+	aadd("z-energy-10",			"small-electric-pole",				"b")
+	aadd("z-energy-10",			"medium-electric-pole",				"c")
+	
+	aadd("z-energy-11",			"big-electric-pole",					"b")
+	
+	aadd("z-energy-12",			"substation",									"a")
 	
 end
 do	--[[defense]]--
-	aadd("z-defense-0",			"stone-wall",				"a")
-	aadd("z-defense-0",			"gate",						"d")
+	aadd("z-defense-0",			"stone-wall",									"b")
 	
-	aadd("z-defense-3",			"gun-turret",				"a")
-	aadd("z-defense-3",			"flamethrower-turret",		"b")
-	aadd("z-defense-3",			"laser-turret",				"c")
+	aadd("z-defense-1",			"gate",												"a")
 	
-	aadd("z-defense-8",			"radar",					"a")
+	aadd("z-defense-3",			"gun-turret",									"a")
+	aadd("z-defense-3",			"flamethrower-turret",				"b")
+	aadd("z-defense-3",			"laser-turret",								"c")
+	
+	aadd("z-defense-8",			"radar",											"a")
 	
 end
 do	--[[armor]]--
-	aadd("z-armor-0",			"pistol",							"a")
-	aadd("z-armor-0",			"submachine-gun",					"b")
-	aadd("z-armor-0",			"shotgun",							"c")
-	aadd("z-armor-0",			"combat-shotgun",					"d")
-	aadd("z-armor-0",			"flame-thrower",					"e")
-	aadd("z-armor-0",			"rocket-launcher",					"f")
-	
-	aadd("z-armor-1",			"firearm-magazine",					"a")
-	aadd("z-armor-1",			"piercing-rounds-magazine",			"b")
-	aadd("z-armor-1",			"shotgun-shell",					"c")
-	aadd("z-armor-1",			"piercing-shotgun-shell",			"d")
-	aadd("z-armor-1",			"flame-thrower-ammo",				"e")
-	aadd("z-armor-1",			"rocket",							"f")
-	aadd("z-armor-1",			"explosive-rocket",					"g")
-	
-	aadd("z-armor-2",			"grenade",							"a")
-	aadd("z-armor-2",			"cluster-grenade",					"b")
-	aadd("z-armor-2",			"land-mine",						"c")
-	aadd("z-armor-2",			"slowdown-capsule",					"d")
-	aadd("z-armor-2",			"poison-capsule",					"e")
-	aadd("z-armor-2",			"defender-capsule",					"f")
-	aadd("z-armor-2",			"distractor-capsule",				"g")
-	aadd("z-armor-2",			"destroyer-capsule",				"h")
-	aadd("z-armor-2",			"discharge-defense-remote",			"i")
-	
 	aadd("z-armor-3",			"light-armor",						"a")
 	aadd("z-armor-3",			"heavy-armor",						"b")
 	aadd("z-armor-3",			"modular-armor",					"c")
 	aadd("z-armor-3",			"power-armor",						"d")
 	aadd("z-armor-3",			"power-armor-mk2",					"e")
 	
-	aadd("z-armor-4",			"exoskeleton-equipment",			"a")
-	aadd("z-armor-4",			"night-vision-equipment",			"b")
-	aadd("z-armor-4",			"personal-roboport-equipment",		"c")
+	aadd("z-armor-4",			"exoskeleton-equipment",						"a")
+	aadd("z-armor-4",			"night-vision-equipment",						"b")
+	aadd("z-armor-4",			"personal-roboport-equipment",			"c")
+	aadd("z-armor-4",			"personal-roboport-mk2-equipment",	"d")
 	
 	aadd("z-armor-7",			"solar-panel-equipment",			"a")
 	aadd("z-armor-7",			"fusion-reactor-equipment",			"b")
@@ -244,7 +231,40 @@ do	--[[armor]]--
 	
 	aadd("z-armor-9",			"energy-shield-equipment",			"a")
 	aadd("z-armor-9",			"energy-shield-mk2-equipment",		"b")
+end
+do	--[[weapons]]--
+	aadd("z-weaponry-0",			"pistol",													"a")
+	aadd("z-weaponry-0",			"submachine-gun",									"b")
+	aadd("z-weaponry-0",			"shotgun",												"c")
+	aadd("z-weaponry-0",			"combat-shotgun",									"d")
+	aadd("z-weaponry-0",			"flamethrower",										"e")
+	aadd("z-weaponry-0",			"rocket-launcher",								"f")
 	
+	aadd("z-weaponry-1",			"firearm-magazine",								"a")
+	aadd("z-weaponry-1",			"piercing-rounds-magazine",				"b")
+	aadd("z-weaponry-1",			"uranium-rounds-magazine",				"c")
+	aadd("z-weaponry-1",			"shotgun-shell",									"d")
+	aadd("z-weaponry-1",			"piercing-shotgun-shell",					"e")
+	aadd("z-weaponry-1",			"flamethrower-ammo",							"f")
+	aadd("z-weaponry-1",			"rocket",													"g")
+	aadd("z-weaponry-1",			"explosive-rocket",								"h")
+	aadd("z-weaponry-1",			"atomic-bomb",										"i")
+	
+	aadd("z-weaponry-6",			"grenade",												"a")
+	aadd("z-weaponry-6",			"cluster-grenade",								"b")
+	aadd("z-weaponry-6",			"land-mine",											"c")
+	
+	aadd("z-weaponry-8",			"slowdown-capsule",								"a")
+	aadd("z-weaponry-8",			"poison-capsule",									"b")
+	aadd("z-weaponry-8",			"defender-capsule",								"c")
+	aadd("z-weaponry-8",			"distractor-capsule",							"d")
+	aadd("z-weaponry-8",			"destroyer-capsule",							"e")
+	aadd("z-weaponry-8",			"discharge-defense-remote",				"f")
+	
+	aadd("z-weaponry-11",		"cannon-shell",											"a")
+	aadd("z-weaponry-11",		"explosive-cannon-shell",						"b")
+	aadd("z-weaponry-11",		"uranium-cannon-shell",							"c")
+	aadd("z-weaponry-11",		"explosive-uranium-cannon-shell",		"d")
 end
 do	--[[intermediate]]--	
 	aadd("z-intermediate-1",	"electronic-circuit",		"b")
@@ -252,8 +272,6 @@ do	--[[intermediate]]--
 	aadd("z-intermediate-1",	"processing-unit",			"f")
 	
 	aadd("z-intermediate-4",	"iron-gear-wheel",			"a")
-	
-	aadd("z-intermediate-3",	"alien-artifact",			"a")
 	
 	aadd("z-intermediate-4",	"fish",						"a")
 	aadd("z-intermediate-4",	"raw-fish",					"b")
@@ -276,10 +294,12 @@ do	--[[module]]--
 	aadd("z-module-0",			"lab",						"a")
 	aadd("z-module-0",			"beacon",					"e")
 	
-	aadd("z-module-1",			"science-pack-1",			"a")
-	aadd("z-module-1",			"science-pack-2",			"b")
-	aadd("z-module-1",			"science-pack-3",			"c")
-	aadd("z-module-1",			"alien-science-pack",		"d")
+	aadd("z-module-1",			"science-pack-1",						"a")
+	aadd("z-module-1",			"science-pack-2",						"b")
+	aadd("z-module-1",			"science-pack-3",						"c")
+	aadd("z-module-1",			"military-science-pack",		"d")
+	aadd("z-module-1",			"production-science-pack",	"e")
+	aadd("z-module-1",			"high-tech-science-pack",		"f")
 	
 	aadd("z-module-4",			"speed-module",				"a")
 	aadd("z-module-4",			"speed-module-2",			"b")
@@ -294,26 +314,24 @@ do	--[[module]]--
 	aadd("z-module-6",			"effectivity-module-3",		"c")
 end
 do	--[[trains-vehicles]]--
-	aadd("z-trains-0",			"diesel-locomotive",		"c")
+	aadd("z-trains-0",			"rail",												"a")
+	aadd("z-trains-0",			"straight-rail",							"b")
+	aadd("z-trains-0",			"curved-rail",								"e")
+	aadd("z-trains-0",			"train-stop",									"f")
+	aadd("z-trains-0",			"rail-signal",								"g")
+	aadd("z-trains-0",			"rail-chain-signal",					"h")
 	
-	aadd("z-trains-1",			"cargo-wagon",				"b")
+	aadd("z-trains-1",			"locomotive",						"a")
 	
-	aadd("z-trains-12",			"rail",						"a")
-	aadd("z-trains-12",			"straight-rail",			"c")
-	aadd("z-trains-12",			"curved-rail",				"d")
-	aadd("z-trains-12",			"train-stop",				"e")
-	aadd("z-trains-12",			"rail-signal",				"f")
-	aadd("z-trains-12",			"rail-chain-signal",		"g")
+	aadd("z-trains-2",			"cargo-wagon",					"a")
 	
+	aadd("z-trains-3",			"fluid-wagon",					"a")
 	
 	aadd("z-vehicles-0",		"car",						"a")
 	aadd("z-vehicles-0",		"tank",						"b")
 	
 	aadd("z-vehicles-3",		"tank-machine-gun",			"a")
 	aadd("z-vehicles-3",		"vehicle-machine-gun",		"b")
-	
-	aadd("z-vehicles-4",		"cannon-shell",				"a")
-	aadd("z-vehicles-4",		"explosive-cannon-shell",	"b")
 	
 end
 do	--[[decorative]]--
@@ -324,4 +342,23 @@ do	--[[decorative]]--
 	
 	aadd("z-decorative-4",			"small-lamp",			"a")
 	
+end
+do  --[[atomic]]--
+	zgc.add_main_group("atom")
+	aadd("z-atom-0",			"nuclear-reactor",				"a")
+	aadd("z-atom-0",			"heat-exchanger",					"b")
+	aadd("z-atom-0",			"heat-pipe",							"e")
+	aadd("z-atom-0",			"centrifuge",							"f")
+	
+	aadd("z-atom-1",			"uranium-235",										"a")
+	aadd("z-atom-1",			"uranium-238",										"b")
+	aadd("z-atom-1",			"uranium-fuel-cell",							"c")
+	aadd("z-atom-1",			"uranium-processing",							"e")
+	aadd("z-atom-1",			"kovarex-enrichment-process",			"f")
+	aadd("z-atom-1",			"nuclear-fuel-reprocessing",			"g")
+
+end
+do  --[[barreling]]--
+	zgc.add_main_group("barreling", 4)
+	aadd("z-barreling-0",			"empty-barrel",					"a")
 end
