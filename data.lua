@@ -1,23 +1,43 @@
 zgc = zgc or {}
 zgc.cnt = 0
 zgc.itemtypes = {
-	"mining-tool", "repair-tool", "rail-planner", "blueprint-book", "blueprint", "deconstruction-item", "gun", "ammo", "armor","virtual-signal", "module", "tool", "capsule", "selection-tool", "item-with-entity-data"}
+"mining-tool", "repair-tool", "rail-planner", "blueprint-book", "blueprint", "deconstruction-item", "gun", "ammo", "armor","virtual-signal", "module", "tool", "capsule", "selection-tool", "item-with-entity-data"}
 zgc.restrictedtypes = {
-	"assembling-machine","virtual-signal"}
+"assembling-machine","virtual-signal"}
 zgc.brutgroups = {
-	"yuoki","Yuoki","yuoki-energy","yuoki_liquids","yi_engines","yuoki_railway","yie_harvest"}
+"yuoki","Yuoki","yuoki-energy","yuoki_liquids","yi_engines","yuoki_railway","yie_harvest"}
 zgc.grp_list = {
-"gathering","production","resources","plates","liquids","chemistry","automatization","transport","defense","energy","logistic","module","intermediate","armor","weaponry","trains-vehicles","decorative","alien","other"}
+"gathering","production","resources","plates","liquids","barreling","chemistry","automatization","transport","defense","energy","logistic","module","intermediate","armor","weaponry","trains-vehicles","decorative","alien","other"}
 zgc.mgq = {
-{"gathering","production"},
-{"automatization","transport","logistic","energy","defense"},
-{"intermediate"},
-{"trains-vehicles"},
+	{"gathering","production"},
+	{"automatization","transport","logistic","energy","defense"},
+	{"intermediate"},
+	{"trains-vehicles"},
+}
+zgc.no_sort_sub = {
+	"angels-","ore-","geode-","slag-","water-","nodule-","petrochem-","processing-",
+	"raw-","thermal-","refining-","green-module-",
+	"void","liquifying","filtering","biters","spitters",
+	"speed-module","productivity-module","effectivity-module","Natural-Evolution",
+	"n-", "zgc-"
 }
 zgc.new_ressourse_list = {}
 zgc.name_list = {}
+mods = {{}}
 
 
+function zgc.enabled_mods()
+	if i_exist("angels-ore1") then mods.angels_refining = true else mods.angels_refining = false end
+	if i_exist("catalyst-metal-carrier") then mods.angels_petrochem = true else mods.angels_petrochem = false end
+	if i_exist("angels-solder") then mods.angels_smelting = true else mods.angels_smelting = false end
+	if i_exist("green-transport-belt") then mods.bobs = true else mods.bobs = false end
+	if i_exist("5d-mk4-transport-belt") then mods.dim = true else mods.dim = false end
+	if i_exist("rapid-transport-belt-mk1") then mods.extended = true else mods.extended = false end
+	if i_exist("y-unicomp-raw") then mods.yuoki = true else mods.yuoki = false end
+	if i_exist("ye_overheater") then mods.yuoki_engines = true else mods.yuoki_engines = false end
+	if i_exist("mini-assembler-1") then mods.mini_machines = true else mods.mini_machines = false end
+	return mods
+end
 function _log(msg,...)
 	if not z_debug then return "" end
 	return log("[[ZGC]] "..string.format(msg,...))
@@ -25,67 +45,67 @@ end
 
 function table.merge(tab1, tab2)
 	if type(tab1) == 'table' and type(tab2) == 'table' then
-        for k,v in pairs(tab2) do
+		for k,v in pairs(tab2) do
 			if type(v)=='table' and type(tab1[k] or false)=='table' then
 				table.merge(tab1[k],v)
-			elseif type(k) == "number" then
+				elseif type(k) == "number" then
 				table.insert(tab1,v)
-			else
+				else
 				tab1[k]=v
 			end
 		end
-    end
-    return tab1
+	end
+	return tab1
 end
 
 function table.deepcopy(tab)
-    local tab_type = type(tab)
-    local copy
-    if tab_type == 'table' then
-        copy = {}
-        for tab_key, tab_value in next, tab, nil do
-            copy[table.deepcopy(tab_key)] = table.deepcopy(tab_value)
-        end
-        setmetatable(copy, table.deepcopy(getmetatable(tab)))
+	local tab_type = type(tab)
+	local copy
+	if tab_type == 'table' then
+		copy = {}
+		for tab_key, tab_value in next, tab, nil do
+			copy[table.deepcopy(tab_key)] = table.deepcopy(tab_value)
+		end
+		setmetatable(copy, table.deepcopy(getmetatable(tab)))
     else -- number, string, boolean, etc
-        copy = tab
-    end
-    return copy
+		copy = tab
+	end
+	return copy
 end
 
 function table.removekey(tab, key)
-    local element = tab[key]
-    tab[key] = nil
-		_log("Remove key %s from [%s] table",key,tostring(tab))
-    return element
+	local element = tab[key]
+	tab[key] = nil
+	_log("Remove key %s from [%s] table",key,tostring(tab))
+	return element
 end
 
 function table.has_value(tab, val)
-    for index, value in ipairs (tab) do
-        if value == val then
-            return true
-        end
-    end
-    return false
+	for index, value in ipairs (tab) do
+		if value == val then
+			return true
+		end
+	end
+	return false
 end
 
 function dumpvar(data, depth, sortdepth)
-    local tablecache = {}
-    local buffer = ""
-    local padder = "	"
-    local depth = depth or 30
-    local sortdepth = sortdepth or 0
- 
-    local function dumpvar(d, _depth)
-        local t = type(d)
-        local str = tostring(d)
-        if (t == "table") then
-            if (tablecache[str]) then
-                -- table already dumped before, so we dont
-                -- dump it again, just mention it
-                buffer = buffer.."<"..str..">\n"
-            else
-                tablecache[str] = (tablecache[str] or 0) + 1
+	local tablecache = {}
+	local buffer = ""
+	local padder = "	"
+	local depth = depth or 30
+	local sortdepth = sortdepth or 0
+	
+	local function dumpvar(d, _depth)
+		local t = type(d)
+		local str = tostring(d)
+		if (t == "table") then
+			if (tablecache[str]) then
+				-- table already dumped before, so we dont
+				-- dump it again, just mention it
+				buffer = buffer.."<"..str..">\n"
+				else
+				tablecache[str] = (tablecache[str] or 0) + 1
 				
 				if _depth >= depth then buffer = buffer.."\n"; return end
 				buffer = buffer..string.format(" {%s-- <%s>\n",padder,str)
@@ -96,23 +116,23 @@ function dumpvar(data, depth, sortdepth)
 						if _depth+1 < depth then buffer = buffer.." => " end
 						dumpvar(v, _depth+1)
 					end
-				else for k, v in pairs(d) do
+					else for k, v in pairs(d) do
 						buffer = buffer..string.rep(padder, _depth+1).."["..k.."]"
 						if _depth+1 < depth then buffer = buffer.." => " end
 						dumpvar(v, _depth+1)
 					end
 				end
-                
+				
 				buffer = buffer..string.rep(padder, _depth).."}\n"
-            end
-        elseif (t == "number") then
-            buffer = buffer.."("..t..") "..str.."\n"
-        else
-            buffer = buffer.."("..t..") \""..str.."\"\n"
-        end
-    end
-    dumpvar(data, 0)
-    return buffer
+			end
+			elseif (t == "number") then
+			buffer = buffer.."("..t..") "..str.."\n"
+			else
+			buffer = buffer.."("..t..") \""..str.."\"\n"
+		end
+	end
+	dumpvar(data, 0)
+	return buffer
 end
 
 function pairsByKeys(t, f)
@@ -123,7 +143,7 @@ function pairsByKeys(t, f)
 	local iter = function ()   -- iterator function
 		i = i + 1
 		if a[i] == nil then return nil
-		else return a[i], t[a[i]]
+			else return a[i], t[a[i]]
 		end
 	end
 	return iter
@@ -132,7 +152,7 @@ end
 
 
 function zgc.i_get_type(name)
-
+	
 	local item_type = nil
 	local itemtypes_all = table.deepcopy(zgc.itemtypes)
 	table.insert(itemtypes_all,"fluid")
@@ -189,13 +209,13 @@ function zgc.i_combine(item1_in, item2_in)
 	local item = {}
 	local item1 = zgc.i_item(item1_in)
 	local item2 = zgc.i_item(item2_in)
-
+	
 	item.name = item1.name
 	item.type = item1.type
-
+	
 	if item1.amount then
 		item.amount = item1.amount + (item2.amount or 0)
-	else
+		else
 		item.amount_min = (item1.amount_min or item1.amount or 1) + (item2.amount_min or item2.amount or 0)
 		item.amount_max = (item1.amount_max or item1.amount or 1) + (item2.amount_max or item2.amount or 0)
 	end
@@ -238,7 +258,7 @@ end
 function zgc.r_remove_ingredient(recipe, item)
 	if data.raw.recipe[recipe] then
 		zgc.i_remove(data.raw.recipe[recipe].ingredients, item)
-	else
+		else
 		_log("Recipe %s does not exist.",recipe)
 	end
 end
@@ -256,7 +276,7 @@ end
 function zgc.r_add_new_ingredient(recipe, item)
 	if data.raw.recipe[recipe] and zgc.i_get_type(i_basic_item(item).name) then
 		zgc.i_add_new(data.raw.recipe[recipe].ingredients, zgc.i_basic_item(item))
-	else
+		else
 		if not data.raw.recipe[recipe] then
 			_log("Recipe %s does not exist.",recipe)
 		end
@@ -269,7 +289,7 @@ end
 function zgc.r_add_ingredient(recipe, item)
 	if data.raw.recipe[recipe] and zgc.i_get_type(zgc.i_basic_item(item).name) then
 		zgc.i_add_inc(data.raw.recipe[recipe].ingredients, zgc.i_basic_item(item))
-	else
+		else
 		if not data.raw.recipe[recipe] then
 			_log("Recipe %s does not exist.",recipe)
 		end
@@ -283,19 +303,21 @@ function zgc.r_replace_ingredient(recipe, old, new)
 	local new = new or "raw-wood"
 	if data.raw.recipe[recipe] and zgc.i_get_type(new) then
 		local amount = 0
-		for i, ingredient in pairs(data.raw.recipe[recipe].ingredients) do
-			if ingredient[1] == old then
-				amount = ingredient[2] + amount
-			end
-			if ingredient.name == old then
-				amount = ingredient.amount + amount
+		if(type(data.raw.recipe[recipe].ingredients) == "table") then
+			for i, ingredient in pairs(data.raw.recipe[recipe].ingredients) do
+				if ingredient[1] == old then
+					amount = ingredient[2] + amount
+				end
+				if ingredient.name == old then
+					amount = ingredient.amount + amount
+				end
 			end
 		end
 		if amount > 0 then
 			zgc.r_remove_ingredient(recipe, old)
 			zgc.r_add_ingredient(recipe, {new, amount})
 		end
-	else
+		else
 		if not data.raw.recipe[recipe] then
 			_log("Recipe %s does not exist.",recipe)
 		end
@@ -311,7 +333,7 @@ function zgc.r_replace_ingredient_in_all(old, new)
 		for i, recipe in pairs(data.raw.recipe) do
 			zgc.r_replace_ingredient(recipe.name, old, new)
 		end
-	else
+		else
 		_log("Ingredient %s does not exist.",new)
 	end
 end
@@ -323,7 +345,7 @@ function zgc.t_add_recipe_unlock(technology, recipe)
 			if effect.type == "unlock-recipe" and effect.recipe == recipe then return end
 		end
 		table.insert(data.raw.technology[technology].effects,{type = "unlock-recipe", recipe = recipe})
-	else
+		else
 		if not data.raw.technology[technology] then
 			_log("technology %s does not exist.",technology)
 		end
@@ -340,7 +362,7 @@ function zgc.t_remove_prerequisite(technology, prerequisite)
 				table.remove(data.raw.technology[technology].prerequisites, i)
 			end
 		end
-	else
+		else
 		_log("technology %s does not exist.",technology)
 	end
 end
@@ -352,7 +374,7 @@ function zgc.t_remove_recipe_unlock(technology, recipe)
 				table.remove(data.raw.technology[technology].effects,i)
 			end
 		end
-	elseif not data.raw.technology[technology] then
+		elseif not data.raw.technology[technology] then
 		_log("technology %s does not exist.",technology)
 	end
 end
@@ -362,7 +384,7 @@ end
 
 function i_exist(item)
 	for _,v in pairs(zgc.name_list) do
-		if v == item then return true end
+		if tostring(v) == item then return true end
 	end
 	return false
 end
@@ -387,15 +409,15 @@ function iadd(group,name,order,ico,anim)
 		data.raw[typeof][name].flags = data.raw[typeof][name].oldflags or data.raw[typeof][name].flags
 		if ico then data.raw[typeof][name].icon = ico end
 		if anim then data.raw[typeof][name].animation.filename = anim end
-_log("ADD (%s) %s to %s : %s",string.upper(typeof),name,group,order)
+		_log("ADD (%s) %s to %s : %s",string.upper(typeof),name,group,order)
 		return
 		
-	elseif data.raw["fluid"][name] then
+		elseif data.raw["fluid"][name] then
 		data.raw["fluid"][name].subgroup = group
 		data.raw["fluid"][name].order = order
 		data.raw["fluid"][name].flags = data.raw["fluid"][name].oldflags or data.raw["fluid"][name].flags
 		if ico then data.raw["fluid"][name].icon = ico end
-_log("ADD (%s) %s to %s : %s",string.upper(typeof),name,group,order)
+		_log("ADD (%s) %s to %s : %s",string.upper(typeof),name,group,order)
 		return
 	end
 	
@@ -405,10 +427,10 @@ _log("ADD (%s) %s to %s : %s",string.upper(typeof),name,group,order)
 	data.raw.item[name].flags = data.raw.item[name].oldflags or data.raw.item[name].flags
 	if ico then data.raw.item[name].icon = ico end
 	if anim then data.raw.item[name].animation.filename = anim end
-_log("ADD ITEM %s to %s : %s",name,group,order)
+	_log("ADD ITEM %s to %s : %s",name,group,order)
 end
 function radd(group,recipe,order,ico)
-
+	
 	local group = zgc.get_group_name(group,name)
 	if not order then zgc.cnt = zgc.cnt+1 end
 	local order 	= order or "z"..zgc.cnt
@@ -421,7 +443,7 @@ function radd(group,recipe,order,ico)
 		data.raw.recipe[recipe].order = order
 		data.raw.recipe[recipe].hidden  = false
 		if ico then data.raw.recipe[recipe].icon = ico end
-_log("ADD RECIPE %s to %s : %s",recipe,group,order)
+		_log("ADD RECIPE %s to %s : %s",recipe,group,order)
 	end
 end
 function aadd(group,name,order,ico,anim,addrecipe)
@@ -453,7 +475,7 @@ function ihide(name,replase,typeof)
 	
 	--# Replace items
 	if replase then
-_log("REPLACE  %s => %s",name,replase)
+		_log("REPLACE  %s => %s",name,replase)
 		zgc.r_replace_ingredient_in_all(name, replase)
 	end
 	
@@ -474,7 +496,7 @@ function rhide(name,recipe)
 		end
 	end
 	if #tech_name > 0 then
-_log("[[REMOVE]]  %s from [%s]",name,tech_name)
+		_log("[[REMOVE]]  %s from [%s]",name,tech_name)
 		zgc.t_remove_recipe_unlock(tech_name, name)
 	end
 	
@@ -506,7 +528,7 @@ function switch_tech(tname,flag)
 				data.raw.technology[tname].effects = table.deepcopy(data.raw.technology[tname].hidden_effects)
 				data.raw.technology[tname].hidden_effects = nil
 			end
-		else
+			else
 			if data.raw.technology[tname].effects then
 				data.raw.technology[tname].hidden_effects = table.deepcopy(data.raw.technology[tname].effects)
 				data.raw.technology[tname].effects = nil
@@ -555,11 +577,11 @@ function zgc.find_recipe(item, brute)
 		for _name,_data in pairs(data.raw.recipe) do
 			if _data.result then
 				if (type(_data.result) == "table" and _data.result.name == item)
-				or (type(_data.result) == "string" and _data.result == item) then
+					or (type(_data.result) == "string" and _data.result == item) then
 					_log("BRUTE RECIPE (%s) for %s",_name,item)
 					return _name
 				end
-			elseif _data.results and type(_data.results) == "table" then
+				elseif _data.results and type(_data.results) == "table" then
 				for _,v in pairs(_data.results) do
 					if v.name and v.name == item then
 						_log("BRUTE RECIPE (%s) for %s",_name,item)
@@ -578,13 +600,13 @@ function zgc.add_recipe_to_tech(t,r)
 	local _r = zgc.find_recipe(r)
 	
 	if data.raw.technology[t] and data.raw.recipe[_r] then
-_log('RECIPE2TECH  "%s"',_r)
+		_log('RECIPE2TECH  "%s"',_r)
 		data.raw.recipe[_r].enabled = false
 		data.raw.technology[t].enabled = true
 		data.raw.technology[t].hidden = false
 		zgc.t_add_recipe_unlock(t,_r)
-	else
-_log('[[RECIPE2TECH FAIL]] "%s"',_r)
+		else
+		_log('[[RECIPE2TECH FAIL]] "%s"',_r)
 	end
 	
 end
@@ -616,11 +638,11 @@ function zgc.add_newRessource_min_max(main_source, it, mn, mx, pb, it2, mn2, mx2
 				if  zgc.new_ressourse_list[k] == nil then zgc.new_ressourse_list[k] = {} end
 				if type(tree.minable.results) == "table" then
 					for _,v in pairs(tree.minable.results) do
-						table.insert(zgc.new_ressourse_list[k],v) end
+					table.insert(zgc.new_ressourse_list[k],v) end
 					table.insert(zgc.new_ressourse_list[k],_res1)
 					if it2 ~= nil and data.raw.item[it2] then table.insert(zgc.new_ressourse_list[k],_res2) end
 					
-				elseif tree.minable.result ~= nil then
+					elseif tree.minable.result ~= nil then
 					local count = tree.minable.count or 2
 					table.insert(zgc.new_ressourse_list[k],{
 						type = "item",
@@ -634,12 +656,12 @@ function zgc.add_newRessource_min_max(main_source, it, mn, mx, pb, it2, mn2, mx2
 				end
 			end
 		end
-	elseif data.raw.resource[main_source] and type(data.raw.resource[main_source].minable) == "table" then
+		elseif data.raw.resource[main_source] and type(data.raw.resource[main_source].minable) == "table" then
 		local source_col = {main_source, main_source.."__tm", "infinite-"..main_source, "infinite-"..main_source.."__tm"}
 		for _,source in pairs(source_col) do if data.raw.resource[source] then
 			if type(data.raw.resource[source].minable.results) == "table" then
 				zgc.new_ressourse_list[source] = table.deepcopy(data.raw.resource[source].minable.results)
-			else
+				else
 				zgc.new_ressourse_list[source] = zgc.new_ressourse_list[source] or {}
 				local count = data.raw.resource[source].minable.count or 2
 				table.insert(zgc.new_ressourse_list[source],{
@@ -677,6 +699,62 @@ function zgc.add_newRessource_finalize()
 	
 end
 
+function string.starts(String,Start)
+   return string.sub(String,1,string.len(Start))==Start
+end
+
+function string.ends(String,End)
+   return End=='' or string.sub(String,-string.len(End))==End
+end
+
+function compare_to_table(tbl, val)
+    for index, value in ipairs(tbl) do
+        if string.starts(val, value) then
+            return true
+        end
+    end
+    return false
+end
+
+function rPrint(s, l, i) -- recursive Print (structure, limit, indent)
+	l = (l) or 1000; i = i or "";	-- default item limit, indent string
+	if (l<1) then _log("ERROR: Item limit reached."); return l-1 end;
+	local ts = type(s);
+	if (ts ~= "table") then _log(i..tostring(s)); return l-1 end
+	for k,v in pairs(s) do
+		--_log(i..k);
+		l = rPrint(v, l, i.."\t["..k.."] ");
+		if (l < 0) then break end
+	end
+	return l
+end	
+
+function zgc.ungrouped()
+	local _list = {}
+	for k,l in pairs(data.raw.recipe) do
+		if l.group == nil and l.subgroup ~= nil then
+			table.insert(_list, k)
+		elseif l.group == nil or (l.group ~= nil and not string.find(tostring(l.group), "z-")) then
+			if l.subgroup ~= nil and not compare_to_table(zgc.no_sort_sub, l.subgroup) then
+				table.insert(_list, k)
+			end
+		end
+	end
+	return _list
+end
+
+function zgc.list_ungrouped()
+	_log("Not sorted into a group: ")
+	for k,l in pairs(data.raw.recipe) do
+		if l.group == nil or (l.group ~= nil and not string.find(tostring(l.group), "z-")) then
+			if l.subgroup ~= nil and not compare_to_table(zgc.no_sort_sub, l.subgroup) then
+				_log(k..": ");
+				rPrint(l, 10000, "\t")
+			end
+		end
+	end
+end
+
 function zgc.generate_main_groups()
 	local c = 0
 	local z = ""
@@ -694,6 +772,7 @@ function zgc.add_main_group(name,order)
 		order = "0 0 zgc-"..order,
 		inventory_order = "0 0 zgc-"..order,
 		icon = "__ZGroupChange__/graphics/icons/cat/"..name..".png",
+		icon_size = 64
 	}})
 end
 
@@ -709,7 +788,7 @@ function zgc.resort_main_groups(que)
 	for r=1,5 do for c=1,6 do
 		if zgc.mgq[r] and zgc.mgq[r][c] then
 			zgc.group_order("zgc-"..zgc.mgq[r][c], "0 0 zgc-"..r..c)
-		elseif que and que[cnt] then
+			elseif que and que[cnt] then
 			zgc.group_order("zgc-"..que[cnt], "0 0 zgc-"..r..c)
 			cnt = cnt+1
 		else break end
@@ -717,7 +796,7 @@ function zgc.resort_main_groups(que)
 end
 
 function zgc.get_base_name(name,plus)
-
+	
 	if name:match('^z[-]%a+[-]%d+$') then name = name:match("^z[-](%a+)[-]%d+$"):gsub("-","") end
 	return name
 	
@@ -732,7 +811,9 @@ function zgc.get_main_group(name)
 	end
 	
 	for k,_ in pairs(data.raw["item-group"]) do
-		if string.find(k,name) and k:match('^zgc[-]') then return k end
+		if string.find(k,name) and k:match('^zgc[-]') then
+			return k
+		end
 	end
 	
 	return false
@@ -750,7 +831,7 @@ function zgc.get_group_name(name,item)
 	local order = name:match('[-](%d%d?)$')
 	if tonumber(order) then
 		if tonumber(order) < 10 then order = '0'..order end
-	else 
+		else 
 		_log("[get_group_name] tonumber(%s) = %s",name,order or "nil")
 		order = name
 	end
@@ -761,15 +842,15 @@ function zgc.get_group_name(name,item)
 	local main_group = zgc.get_main_group(name)
 	
 	if main_group then
-_log("ADD NEW SUB GROUP [%s] for %s",_name,main_group)
+		_log("ADD NEW SUB GROUP [%s] for %s",_name,main_group)
 		data.raw["item-subgroup"][_name] = {
 			type = "item-subgroup",
 			name = _name,
 			group = main_group,
 			order = order
 		}
-	else
-_log("ADD UNKNOWN SUB GROUP [%s] to OTHER (reason: %s)",_name,item)
+		else
+		_log("ADD UNKNOWN SUB GROUP [%s] to OTHER (reason: %s)",_name,item)
 		data.raw["item-subgroup"][_name] = {
 			type = "item-subgroup",
 			name = _name,

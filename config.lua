@@ -16,8 +16,17 @@ z_balance_Prevent_hiding 	= false		-- If true - ignore any hiding of recipes, it
 z_balance.vanila			= true
 -- New coal recipe from raw-wood
 
+z_balance.barreling_sort = true
+-- Sort barrels based on fluid name
+
+z_balance.chemistry		= true
+-- Move all liquids to chemistry (To reduce number of groups)
+
 z_balance.dim				= true
 -- Change ingredients for transport belts and gold circuit
+
+z_balance.hide_canisters = true
+-- Hide Canister from Bob's & Yuoki's Mods
 
 z_balance.bob				= true
 -- Hide Electronic machines
@@ -46,18 +55,17 @@ z_balance.other				= true
 -----------------------------------------------------------------------------------------
 --# List of additional balance triggers (independed from global trigger) [true/false] #--
 
-z_balance.add_trees			= true	-- Add woodpulp and organic dust to trees (depending on enabled mods)
-z_balance.add_dirt			= true	-- Add dirt, ash and crushed stone to ores (depending on enabled mods)
-z_balance.add_dust			= true	-- Add crushed (Youki) and ore's dust (5dim) to raw materials (depending on enabled mods)
-z_balance.add_powder		= true	-- Add powdered ores to raw materials (if angel's processing mod enabled)
-z_balance.add_gems			= true	-- Add some minerals to gem ore (if bob ores mod enabled)
-z_balance.bob_inserters		= true	-- Filter out only original and (extra)fast inserters if "bob_inserters" mod enabled
-z_balance.bob_pipes			= true	-- Hide pipes from non-original resources
+z_balance.inv_size				= false	-- Increase player inventory size
+z_balance.add_trees				= true	-- Add woodpulp and organic dust to trees (depending on enabled mods)
+z_balance.add_dirt				= true	-- Add dirt, ash and crushed stone to ores (depending on enabled mods)
+z_balance.add_dust				= true	-- Add crushed (Youki) and ore's dust (5dim) to raw materials (depending on enabled mods)
+z_balance.add_gems				= true	-- Add some minerals to gem ore (if bob ores mod enabled)
+z_balance.bob_inserters		= false	-- Filter out only original and (extra)fast inserters if "bob_inserters" mod enabled
+z_balance.bob_pipes				= false	-- Hide pipes from non-original resources
 z_balance.bob_synthetic		= true	-- Hide synthetic (synthetic-wood, wooden-board-synthetic, etc.)
-z_balance.bob_weaponry		= true	-- Hide weapons, ammo and armored trains
-z_balance.bob_transport		= true	-- Hide armored trains and tanks
-z_balance.angels_bio		= true	-- Hide bio processing line
-z_balance.youki_pipe		= true	-- Hide Youki's thin pipes and valve
-z_balance.youki_tech		= true	-- Temporary solution while Yuoki have no their own technology
-z_balance.other_mini		= false	-- Replace original factories by their mini-versions (mini-machines mod)
+z_balance.bob_weaponry		= false	-- Hide weapons, ammo and armored trains
+z_balance.bob_transport		= false	-- Hide armored trains and tanks
+z_balance.youki_pipe			= true	-- Hide Youki's thin pipes and valve
+z_balance.youki_tech			= true	-- Temporary solution while Yuoki have no their own technology
+z_balance.other_mini			= true	-- Replace original factories by their mini-versions (mini-machines mod)
 
