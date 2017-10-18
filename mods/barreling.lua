@@ -2,7 +2,7 @@ local barreling_groups = {"crafting-with-fluid", "air-pump", "barreling-pump", "
 local ab = {}
 
 do  --[[barreling]]--
-	aadd("z-barreling-0",			"empty-barrel",					"b")
+	aadd("z-barreling-0",					"empty-barrel",																				"b")
 	
 	--Hide Bob's Gas Canisters
 	if z_balance.hide_canisters then
@@ -16,23 +16,23 @@ do  --[[barreling]]--
 		if i_exist(recipe.name.."-barrel") or i_exist("fill-"..recipe.name.."-barrel") then
 			if (not string.find(lname,"-gas-") and not (string.sub(lname, 0, 4) == "gas-") and not (string.sub(lname, -4) == "-gas")) then
 				if (z_balance.barreling_sort) then
-					aadd("z-barreling-1",	recipe.name.."-barrel", "a["..recipe.name.."]")
-					aadd("z-barreling-3",	"fill-"..recipe.name.."-barrel", "a["..recipe.name.."]")
-					aadd("z-barreling-5",	"empty-"..recipe.name.."-barrel", "a["..recipe.name.."]")
+					aadd("z-barreling-1",	recipe.name.."-barrel",																						"a["..recipe.name.."]")
+					aadd("z-barreling-3",					"fill-"..recipe.name.."-barrel",																						"a["..recipe.name.."]")
+					aadd("z-barreling-5",					"empty-"..recipe.name.."-barrel",																						"a["..recipe.name.."]")
 					else
 					aadd("z-barreling-1",	recipe.name.."-barrel")
-					aadd("z-barreling-3",	"fill-"..recipe.name.."-barrel")
-					aadd("z-barreling-5",	"empty-"..recipe.name.."-barrel")
+					aadd("z-barreling-3",				"fill-"..recipe.name.."-barrel")
+					aadd("z-barreling-5",				"empty-"..recipe.name.."-barrel")
 				end
 				else
 				if (z_balance.barreling_sort) then
-					aadd("z-barreling-2",	recipe.name.."-barrel", "a["..recipe.name.."]")
-					aadd("z-barreling-4",	"fill-"..recipe.name.."-barrel", "a["..recipe.name.."]")
-					aadd("z-barreling-6",	"empty-"..recipe.name.."-barrel", "a["..recipe.name.."]")
+					aadd("z-barreling-2",	recipe.name.."-barrel",																						"a["..recipe.name.."]")
+					aadd("z-barreling-4",					"fill-"..recipe.name.."-barrel",																						"a["..recipe.name.."]")
+					aadd("z-barreling-6",					"empty-"..recipe.name.."-barrel",																						"a["..recipe.name.."]")
 					else
 					aadd("z-barreling-2",	recipe.name.."-barrel")
-					aadd("z-barreling-4",	"fill-"..recipe.name.."-barrel")
-					aadd("z-barreling-6",	"empty-"..recipe.name.."-barrel")
+					aadd("z-barreling-4",				"fill-"..recipe.name.."-barrel")
+					aadd("z-barreling-6",				"empty-"..recipe.name.."-barrel")
 				end
 			end
 		end

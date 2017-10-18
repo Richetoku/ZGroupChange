@@ -7,7 +7,7 @@ use_graphics_tunnings 		= true		-- Enable graphics tunings like better or fixed 
 --# Balance changes such hiding items, change ingredients of recipes, technology changes #--
 
 z_balance_Ignore_All 		= false		-- If true - ignore any of balance settings below
-z_balance_Prevent_hiding 	= false		-- If true - ignore any hiding of recipes, items and technologies
+z_balance_Prevent_hiding 	= true		-- If true - ignore any hiding of recipes, items and technologies
 
 
 -----------------------------------------------------
@@ -24,6 +24,9 @@ z_balance.chemistry		= true
 
 z_balance.dim				= true
 -- Change ingredients for transport belts and gold circuit
+
+z_balance.extended				= true
+-- Hide items if bob's or 5dim version available, ignored otherwise
 
 z_balance.hide_canisters = true
 -- Hide Canister from Bob's & Yuoki's Mods
@@ -43,6 +46,9 @@ z_balance.youki				= true
 -- Hide Bob's water miners and add new lithia water recipe for youki's water generator
 -- Hide items w/o recipes
 -- Hide Bob's radars mk4 and mk5 in exchange on youki
+
+z_balance.nputils				= true
+-- Change NPUtils & NPUtils-X icons to resemble other icons
 
 z_balance.other				= true
 -- Assign unlocking of flare stack recipes to the oil-processing and oil-processing-2 technology

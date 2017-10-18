@@ -23,7 +23,6 @@ zgc.no_sort_sub = {
 }
 zgc.new_ressourse_list = {}
 zgc.name_list = {}
-mods = {{}}
 
 
 function zgc.enabled_mods()

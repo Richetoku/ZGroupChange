@@ -1,17 +1,15 @@
-local vanila = z_balance.vanila
-local barreling = z_balance.barreling
-local barreling_sort = z_balance.barreling_sort
-local chemistry = z_balance.chemistry
-local dim = z_balance.dim
-local hide_canisters = z_balance.hide_canisters
-local bob = z_balance.bob
-local angels = z_balance.angels
-local youki = z_balance.youki
-local other = z_balance.other
 
 --# create list of ungrouped
 local ungrouped = zgc.ungrouped()
 local recipes = data.raw.recipe
+
+function i_exist(item)
+	for _,v in pairs(zgc.name_list) do
+		if tostring(v) == item then return true end
+	end
+	return false
+end
+
 do
 	for _,name in pairs(ungrouped) do
 --[[
@@ -63,7 +61,7 @@ do
 		--[[atomic]]--
 	end
 end
-do --[[MOVE]]--
+do --[[OTHER]]--
 	--Move Liquids to Chemistry
 	for _,recipe in pairs(recipes) do
 		if z_balance.chemistry then
@@ -79,4 +77,5 @@ do --[[MOVE]]--
 			end
 		end
 	end
+
 end

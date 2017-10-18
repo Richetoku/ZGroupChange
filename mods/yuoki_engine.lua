@@ -3,7 +3,14 @@ local allow_changes = z_balance.youki_eng
 local eg = {}
 local ag = {}
 
-if mods.yuoki_engines then
+function i_exist(item)
+	for _,v in pairs(zgc.name_list) do
+		if tostring(v) == item then return true end
+	end
+	return false
+end
+
+if i_exist("ye_overheater") then
 	zgc.add_main_group("engines")
 	zgc.add_main_group("agronomies")
 	
@@ -139,23 +146,23 @@ if mods.yuoki_engines then
 end
 
 do	--[[engines]]--
-	aadd("z-engines-2",		"ye_canmachine",					"z") -- 
+	aadd("z-engines-2",						"ye_canmachine",																			"z") -- 
 	
-	aadd("z-engines-5",		"ye_canister",						"z") -- 
-	aadd("z-engines-5",		"ye_canister2plates_smelt",			"z") -- 
+	aadd("z-engines-5",						"ye_canister",																				"z") -- 
+	aadd("z-engines-5",						"ye_canister2plates_smelt",														"z") -- 
 	
 end
 do	--[[agronomies]]--
-	aadd("z-agronomies-2",		"y_unlimited_wood",				"z") -- 
-	aadd("z-agronomies-2",		"ye_granulate_trifitan_recipe",	"z") -- 
-	aadd("z-agronomies-2",		"ye_granulate_vuger_recipe",	"z") -- 
-	aadd("z-agronomies-2",		"ye_granulate_corn_recipe",		"z") -- 
-	aadd("z-agronomies-2",		"ye_biofuel_recipe",			"z") -- 
-	aadd("z-agronomies-2",		"ye_slurry2ethanol_recipe",		"z") -- 
+	aadd("z-agronomies-2",				"y_unlimited_wood",																		"z") -- 
+	aadd("z-agronomies-2",				"ye_granulate_trifitan_recipe",												"z") -- 
+	aadd("z-agronomies-2",				"ye_granulate_vuger_recipe",													"z") -- 
+	aadd("z-agronomies-2",				"ye_granulate_corn_recipe",														"z") -- 
+	aadd("z-agronomies-2",				"ye_biofuel_recipe",																	"z") -- 
+	aadd("z-agronomies-2",				"ye_slurry2ethanol_recipe",														"z") -- 
 end
 
 do	--[[TECH]]--
-	if z_balance.youki_tech and mods.yuoki_engines then
+	if z_balance.youki_tech and i_exist("ye_overheater") then
 		
 		data:extend({
 			{
@@ -283,16 +290,16 @@ do	--[[TECH]]--
 		end
 		
 		do --# engines
-			zgc.add_recipe_to_tech("yuoki_engines", "ye_canmachine_recipe")
-			zgc.add_recipe_to_tech("yuoki_engines", "ye_canister2plates_smelt")
+			zgc.add_recipe_to_tech("yuoki_engines",				"ye_canmachine_recipe")
+			zgc.add_recipe_to_tech("yuoki_engines",				"ye_canister2plates_smelt")
 		end
 		do --# agronomies
-			zgc.add_recipe_to_tech("yuoki_agronomie", "y_unlimited_wood")
-			zgc.add_recipe_to_tech("yuoki_agronomie", "ye_granulate_trifitan_recipe")
-			zgc.add_recipe_to_tech("yuoki_agronomie", "ye_granulate_vuger_recipe")
-			zgc.add_recipe_to_tech("yuoki_agronomie", "ye_granulate_corn_recipe")
-			zgc.add_recipe_to_tech("yuoki_agronomie", "ye_biofuel_recipe")
-			zgc.add_recipe_to_tech("yuoki_agronomie", "ye_slurry2ethanol_recipe")
+			zgc.add_recipe_to_tech("yuoki_agronomie",				"y_unlimited_wood")
+			zgc.add_recipe_to_tech("yuoki_agronomie",				"ye_granulate_trifitan_recipe")
+			zgc.add_recipe_to_tech("yuoki_agronomie",				"ye_granulate_vuger_recipe")
+			zgc.add_recipe_to_tech("yuoki_agronomie",				"ye_granulate_corn_recipe")
+			zgc.add_recipe_to_tech("yuoki_agronomie",				"ye_biofuel_recipe")
+			zgc.add_recipe_to_tech("yuoki_agronomie",				"ye_slurry2ethanol_recipe")
 		end
 	end
 end

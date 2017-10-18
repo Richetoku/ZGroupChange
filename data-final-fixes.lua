@@ -1,4 +1,5 @@
-z_debug = false
+mods = mods or {}
+z_debug = true
 
 
 --# rebalancing
@@ -21,7 +22,7 @@ end
 --# create basic groups
 zgc.generate_main_groups()
 --# check which mods are enabled
-zgc.enabled_mods()
+mods = zgc.enabled_mods()
 
 
 require("mods.vanila")
@@ -29,6 +30,7 @@ require("mods.5dim")
 require("mods.factorio-extended")
 require("mods.bobs")
 require("mods.angels")
+require("mods.nputils")
 require("mods.yuoki")
 require("mods.yuoki_engine")
 require("mods.yuoki_railway")
@@ -57,9 +59,16 @@ zgc.add_newRessource_finalize()
 
 -- log a list of all recipes
 if z_debug then
-	_log("ZGroupChange Groups")
-	for k,l in pairs(data.raw.recipe) do
-		_log(k..": ");
-		rPrint(l, 10000, "\t")
+	_log("ZGroupChange Groups Start")
+	--for k,l in pairs(data.raw.recipe) do
+	--for name,l in pairs(data.raw) do
+	for a, name in pairs(data.raw["recipe"]) do
+		local typeof 	= zgc.i_get_type(data.raw.recipe[name]) or "item"
+		if (not (name.subgroup == nil)) then
+			if not string.sub(name.subgroup,1,string.len("zgc-")) == "zgc-" then
+				rPrint(name, 10000, "\t["..tostring(name.name).."] ")
+			end
+		end
 	end
+	_log("ZGroupChange Groups End")
 end

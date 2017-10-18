@@ -38,8 +38,8 @@ Then, when you are done - just rename it back to "local" and restart again.
 --[[ EXAMPLE #1
 
 		--GROUP NAME--	-- ITEM --	 --ORDER--
-	aadd("z-other-4",	"raw-wood",		"a")	-- Regroup item
-	aadd("z-other-4",	"coal",			"b")	-- Regroup item
+	aadd("z-other-4",							"raw-wood",																						"a")	-- Regroup item
+	aadd("z-other-4",							"coal",																								"b")	-- Regroup item
 
 ]]
 
@@ -48,11 +48,11 @@ Then, when you are done - just rename it back to "local" and restart again.
 	if i_exist("bi_bio_farm") then			-- If [Bio Farm] from "Bio Industries" mod exist?
 	
 			-- GROUP NAME --		  -- ITEM --	 	 --ORDER--
-		aadd("z-production-9",		"bi_bio_farm",			"a")
-		aadd("z-production-9",		"bi-Bio_Garden",		"b")
-		aadd("z-production-9",		"bi-cokery",			"c")
-		aadd("z-production-9",		"bi-bioreactor",		"d")
-		aadd("z-production-9",		"bi-stone-crusher",		"e")
+		aadd("z-production-9",				"bi_bio_farm",																				"a")
+		aadd("z-production-9",				"bi-Bio_Garden",																			"b")
+		aadd("z-production-9",				"bi-cokery",																					"c")
+		aadd("z-production-9",				"bi-bioreactor",																			"d")
+		aadd("z-production-9",				"bi-stone-crusher",																		"e")
 	
 		rhide("bob-seedling")					-- Hide Bob's version recipe of seedling
 		ahide("bob-fertiliser")					-- Hide item and recipe.
